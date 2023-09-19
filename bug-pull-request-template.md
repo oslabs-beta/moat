@@ -1,4 +1,4 @@
-## What should the reviewer focus on? (files, 
+## What should the reviewer look at? (files, 
 Your answer here
 
 ## What was the bug behavior? 
