@@ -4,9 +4,9 @@
   "description": "<p align=\"center\">\r   <img width=\"250\" src=\"https://res.cloudinary.com/mfrazb/image/upload/v1695043154/moat/moat-smArtboard_1_wrq1bf.png\" alt=\"moat small logo\"> \r </p>",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node server/server.ts",
-    "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development concurrently \"npx webpack serve --open\" \"nodemon server/server.ts\""
+    "build": "webpack --mode production",
+    "start": "nodemon server/server.js",
+    "dev": "webpack serve --mode development --open"
   },
   "keywords": [],
   "author": "",
