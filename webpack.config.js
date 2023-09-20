@@ -11,10 +11,19 @@ module.exports = {
 
     plugins: [
         new HTMLWebpackPlugin({
-            template: './dist/index.html'
+            template: './index.html'
         })
     ],
-
+    mode: process.env.NODE_ENV,
+    devServer: {
+      static: {
+        directory: path.join(__dirname, 'dist'),
+      },
+      compress: true,
+      port: 8000,
+      hot: true,
+      proxy: {},
+    },
     module: {
         rules: [
           {
