@@ -26,8 +26,21 @@ spec:
                       - arm64
       containers:
         - name: codeforge-app-pod
-          image: 604915685483.dkr.ecr.us-east-1.amazonaws.com/codeforge:latest
+          image: 604915685483.dkr.ecr.us-east-1.amazonaws.com/codeforge-app
           ports:
             - containerPort: 5000
       nodeSelector:
         kubernetes.io/os: linux
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: codeforge
+spec:
+  selector:
+    app: codeforge
+  ports:
+    - port: 5678
+
