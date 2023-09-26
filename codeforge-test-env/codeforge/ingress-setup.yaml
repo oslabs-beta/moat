@@ -1,0 +1,18 @@
+apiVersion: extensions/vlbetal
+kind: Ingress
+metadata:
+        name: ingress-setup
+        annotations:
+#          ingress.kubernetes.io/rewrite-target: /
+          nginx.ingress.kubernetes.io/ssl-redirect: "false"
+          nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+          nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+        rules:
+                - http:
+                        paths:
+                                - path: /codeforge
+                                  backend:
+                                          serviceName: codeforge
+                                          servicePort: 5678
+

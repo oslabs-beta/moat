@@ -1,10 +1,22 @@
 apiVersion: v1
 kind: Pod
 metadata:
-   name: codeforge-pod
+   name: codeforge-ingress
+   labels:
+     app: codeforge
 spec:
    containers:
-   - name: codeforge-container-01
-     image: palemartian/codeforge:prod
-     ports:
-     - containerPort: 3000
+   - name: codeforge-ingress
+     image: 604915685483.dkr.ecr.us-east-1.amazonaws.com/codeforge-app
+ 
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: codeforge-service
+spec:
+  selector:
+    app: codeforge
+  ports:
+    - port: 5678

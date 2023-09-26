@@ -3,7 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 
-    entry: './client/index.ts',
+    entry: './client/index.tsx',
     output: {
         path: path.join(__dirname, './dist'),
         publicPath: '/',
@@ -15,7 +15,6 @@ module.exports = {
             template: './index.html'
         })
     ],
-    mode: process.env.NODE_ENV,
     devServer: {
       static: {
         directory: path.join(__dirname, 'dist'),
@@ -45,6 +44,15 @@ module.exports = {
             test: /scss$/,
             exclude: /node_modules/,
             use: ['style-loader', 'css-loader', 'sass-loader'],
+          },
+          {
+            test: /\.(gif|png|avif|jpe?g)$/,
+            type: "asset/resource",
+            generator: {
+              filename: "[name][ext]",
+              publicPath: "assets/images/",
+              outputPath: "assets/images/",
+            },
           },
         ],
       },
