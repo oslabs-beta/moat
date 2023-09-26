@@ -1,0 +1,77 @@
+$lightBorder: 1px solid #a7d0ff;
+$lightBackground: #ddefff;
+$mediumBackground: #ddefff;
+$plainShadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2);
+$highShadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+
+
+.getStyle{
+  background: $lightBackground;
+  border: $lightBorder;
+}
+
+.sideNav {
+  height: 90%;
+  background: $lightBackground;
+  border: $lightBorder;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 15%;
+}
+
+.mainDashboard {
+  height: 80%;
+  background: $lightBackground;
+  border: $lightBorder;
+  position: fixed;
+  top: 10%;
+  left: 15%;
+  width: 84%;
+}
+
+.scrollBar {
+  height: 100%;
+  background: $lightBackground;
+  border: $lightBorder;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 1%;
+}
+
+.header {
+  height: 10%;
+  background: $lightBackground;
+  border: $lightBorder;
+  position: fixed;
+  top: 0;
+  left: 15%;
+  width: 84%;
+  text-align: center;
+}
+
+.footer {
+  height: 10%;
+  background: $lightBackground;
+  border: $lightBorder;
+  position: fixed;
+  bottom: 0;
+  left: 15%;
+  width: 84%;
+}
+
+.title {
+  height: 10%;
+  background: $lightBackground;
+  border: $lightBorder;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15%;
+}
+
+.titleText {
+  text-align: center;
+  color: rgb(25, 25, 65);
+}

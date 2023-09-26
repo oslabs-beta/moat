@@ -1,4 +1,8 @@
-//import * as React from 'react';
-//import App from "./App";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { render } from 'react-dom';
+import App from './App';
 
-console.log('Hello from console');
+
+
+render(<App/>, document.getElementById('root'));
