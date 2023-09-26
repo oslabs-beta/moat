@@ -15,7 +15,7 @@ function App () {
     <div style={getStyle} id='origin'>
       <MainDashboard/>
       <Header open={open} openDrawer={openDrawer}/>
-      <SideNav open={open} openDrawer={openDrawer}/>
+      {/*<SideNav open={open} openDrawer={openDrawer}/>*/}
       <Footer/>
     </div>
   )

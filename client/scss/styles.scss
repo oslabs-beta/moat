@@ -19,11 +19,15 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   display: grid;
   // When we integrate better media queries, we can edit the sidebar width when the screen gets smaller
-  grid-template-columns: 10% 90%;
-  grid-template-rows: 8% 89% 3%;
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'sidebar .'
+    'footer footer';
+  grid-template-columns: auto;
 }
 
 .getStyle {
@@ -31,13 +35,16 @@ body {
   border: $lightBorder;
 }
 
+
 .sideNav {
-  position: sticky;
-  grid-row: 2;
-  grid-column: 1;
-  background: $lightBackground;
-  box-shadow: 3px 3px 10px lightgray;
+ /* position: fixed; 
+  z-index: 0; 
+  top: 5em; 
+  left: 0; 
   height: 100vh;
+  background: $lightBackground;
+  box-shadow: 2px 2px 10px rgb(211, 211, 211);
+  */
 }
 
 .mainDashboard {
@@ -45,7 +52,7 @@ body {
   border: $lightBorder;
   grid-column: 2;
   grid-row: 2;
-  padding: 0 3em 10em 3em;
+  padding: 3em;
 }
 
 .scrollBar {
@@ -83,6 +90,7 @@ body {
 }
 
 .footer {
+  position: sticky;
   background: $headerColor;
   color: white;
   border: $lightBorder;
