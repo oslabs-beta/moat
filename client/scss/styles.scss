@@ -1,74 +1,92 @@
+$headerColor: #326ce5;
 $lightBorder: 1px solid #a7d0ff;
 $lightBackground: #ddefff;
 $mediumBackground: #ddefff;
-$plainShadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2);
-$highShadow: 0 4px 5px rgba(0, 0, 0, 0.2);
 
+// The borders on everything just helps visually to see where the components end/start, they *SHOULD* be removed eventually
 
-.getStyle{
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+#origin {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  // When we integrate better media queries, we can edit the sidebar width when the screen gets smaller
+  grid-template-columns: 10% 90%;
+  grid-template-rows: 8% 89% 3%;
+}
+
+.getStyle {
   background: $lightBackground;
   border: $lightBorder;
 }
 
 .sideNav {
-  height: 90%;
+  grid-row: 2;
+  grid-column: 1;
   background: $lightBackground;
   border: $lightBorder;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 15%;
 }
 
 .mainDashboard {
-  height: 80%;
   background: $lightBackground;
   border: $lightBorder;
-  position: fixed;
-  top: 10%;
-  left: 15%;
-  width: 84%;
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .scrollBar {
-  height: 100%;
   background: $lightBackground;
   border: $lightBorder;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 1%;
 }
 
 .header {
-  height: 10%;
-  background: $lightBackground;
+  background: $headerColor;
+  grid-column: 1 / 3;
+  grid-row: 1;
   border: $lightBorder;
-  position: fixed;
-  top: 0;
-  left: 15%;
-  width: 84%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#title {
+  color: white;
+  font-size: xxx-large;
+}
+
+#menu_icon {
+  margin-left: 3%;
+}
+
+#bell_icon {
+  margin-right: 3%;
 }
 
 .footer {
-  height: 10%;
   background: $lightBackground;
   border: $lightBorder;
-  position: fixed;
-  bottom: 0;
-  left: 15%;
-  width: 84%;
+  grid-row: 3;
+  grid-column: 1 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .title {
-  height: 10%;
   background: $lightBackground;
   border: $lightBorder;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 15%;
 }
 
 .titleText {

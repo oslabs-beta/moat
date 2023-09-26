@@ -1,23 +1,22 @@
-import React from 'react';
-import { Button } from '@mui/material';
+import React, { useState } from 'react';
 import MainDashboard from './containers/MainDashboard';
 import { getStyle } from './scss/styles.scss';
 import Header from './components/Header';
 import SideNav from './components/SideNav';
-import ScrollBar from './components/ScrollBar';
 import Footer from './components/Footer';
-import Title from './components/Title';
 
 function App () {
+
+  // Because the button is on the Header component and the SideNav is its own component I had to declare the state up here
+  // REMEMBER: When passing state using TypeScript you need to setup an interface in the child component with the, format of the props you want to pass in
+  const [open, openDrawer] = useState(false);
+
   return (
-    <div style={getStyle}>
-      <h1>This is App</h1>
+    <div style={getStyle} id='origin'>
       <MainDashboard/>
-      <Header/>
-      <SideNav/>
+      <Header open={open} openDrawer={openDrawer}/>
+      <SideNav open={open} openDrawer={openDrawer}/>
       <Footer/>
-      <ScrollBar/>
-      <Title/>
     </div>
   )
 }
