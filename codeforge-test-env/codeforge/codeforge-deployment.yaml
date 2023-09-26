@@ -5,7 +5,7 @@ metadata:
   labels:
     app: codeforge-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: codeforge-app
@@ -29,6 +29,32 @@ spec:
           image: 604915685483.dkr.ecr.us-east-1.amazonaws.com/codeforge-app
           ports:
             - containerPort: 5000
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-db
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-user
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-password
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-host
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-port
       nodeSelector:
         kubernetes.io/os: linux
 
