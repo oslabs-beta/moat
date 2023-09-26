@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button } from '@mui/material';
-
+import CopyrightIcon from '@mui/icons-material/Copyright';
 
 function Footer () {
   return (
     <div className="footer">
-      <h1>This is Footer</h1>
+      <CopyrightIcon fontSize='small' />
+      <h5>Fantastic 5 Inc</h5>
     </div>
   )
 }
