@@ -1,6 +1,6 @@
 $headerColor: #326ce5;
-$lightBorder: 1px solid #a7d0ff;
-$lightBackground: #ddefff;
+$lightBorder: 0.5px solid #a5a5a5;
+$lightBackground: #ffffff;
 $mediumBackground: #ddefff;
 
 // The borders on everything just helps visually to see where the components end/start, they *SHOULD* be removed eventually
@@ -32,10 +32,12 @@ body {
 }
 
 .sideNav {
+  position: sticky;
   grid-row: 2;
   grid-column: 1;
   background: $lightBackground;
-  border: $lightBorder;
+  box-shadow: 3px 3px 10px lightgray;
+  height: 100vh;
 }
 
 .mainDashboard {
@@ -43,6 +45,7 @@ body {
   border: $lightBorder;
   grid-column: 2;
   grid-row: 2;
+  padding: 0 3em 10em 3em;
 }
 
 .scrollBar {
@@ -51,6 +54,9 @@ body {
 }
 
 .header {
+  position: sticky;
+  top: 0;
+  max-height: 5em;
   background: $headerColor;
   grid-column: 1 / 3;
   grid-row: 1;
@@ -59,11 +65,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 3px 3px 10px lightgray;
 }
 
 #title {
   color: white;
-  font-size: xxx-large;
+  font-size: 60px;
+  text-shadow: 1px 1px 3px 20px rgb(97, 97, 97);
 }
 
 #menu_icon {
@@ -75,7 +83,8 @@ body {
 }
 
 .footer {
-  background: $lightBackground;
+  background: $headerColor;
+  color: white;
   border: $lightBorder;
   grid-row: 3;
   grid-column: 1 / 3;
@@ -92,4 +101,10 @@ body {
 .titleText {
   text-align: center;
   color: rgb(25, 25, 65);
+}
+
+@media (max-width: 768px) {
+  .sidenav {
+    display: none;
+  }
 }
