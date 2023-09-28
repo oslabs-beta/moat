@@ -12,7 +12,5 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "include": [
-    "./client/**/*"
-  ]
+  "include": ["./client/**/*", "./types/index.d.ts"]
 }
