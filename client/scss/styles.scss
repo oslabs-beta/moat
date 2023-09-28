@@ -3,10 +3,9 @@ $lightBorder: 0.5px solid #a5a5a5;
 $lightBackground: #ffffff;
 $mediumBackground: #ddefff;
 $darkBackground: #1a1a1a;
-$accentColor: #87abf8; 
+$accentColor: #87abf8;
 $secondaryColor: #639db0;
 $highlightColor: #edd60f;
-
 
 // The borders on everything just helps visually to see where the components end/start, they *SHOULD* be removed eventually
 
@@ -35,14 +34,42 @@ body {
   grid-template-columns: auto;
 }
 
+iframe {
+  box-shadow: 2px 2px 10px rgb(209, 208, 208);
+  margin: 5px;
+}
+
+#intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  #logo {
+    max-width: 15%;
+    min-width: 15%;
+    padding-right: 4em;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(1px 1px 5px #7d7d7d);
+  }
+  p {
+    max-width: 50%;
+    justify-self: center;
+    font-size: larger;
+    line-height: 1.5em;
+    padding: 1em;
+    color: rgb(86, 86, 86);
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+
 .getStyle {
   background: $lightBackground;
   border: $lightBorder;
 }
 
-
 .sideNav {
- /* position: fixed; 
+  /* position: fixed; 
   z-index: 0; 
   top: 5em; 
   left: 0; 
@@ -53,11 +80,15 @@ body {
 }
 
 .mainDashboard {
-  background: $lightBackground;
-  border: $lightBorder;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: Helvetica, sans-serif;
+  background: rgb(108, 180, 99);
+  background: linear-gradient(16deg, rgba(108, 180, 99, 0.2805716036414566) 2%, rgba(255, 255, 255, 1) 100%);
   grid-column: 2;
   grid-row: 2;
-  padding: 3em;
+  padding: 0 3em 5em 3em;
 }
 
 .scrollBar {
@@ -77,7 +108,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 3px 3px 10px lightgray;
 }
 
 #title {

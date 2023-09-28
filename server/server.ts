@@ -6,6 +6,7 @@ const app: Express = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(express.static(join(__dirname, '../client/assets')));
 
 // This only comes into play when we build the app and run it in production mode
 if (process.env.NODE_ENV === 'production') {
@@ -23,19 +24,18 @@ app.get('/', (req: Request, res: Response) => {
 // This makes a test user, NOTE: need to manually delete it each time
 app.post('/test', async (req: Request, res: Response) => {
   try {
-    await User.create({ username: 'max', password: 'hello', email: 'socool@gmail.com'});
+    await User.create({ username: 'max', password: 'hello', email: 'socool@gmail.com' });
     res.send('test user made :)');
-  }
-  catch {
+  } catch {
     res.send('oopsies there might be a user with that username already');
   }
-})
+});
 
 // This tests that we can get info from the database
 app.get('/test', async (req: Request, res: Response) => {
   const result = await User.find({});
   res.send(result);
-})
+});
 
 // Unknown route handler
 app.use((req: Request, res: Response) => res.sendStatus(404));
