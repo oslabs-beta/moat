@@ -7,9 +7,9 @@ function MainDashboard() {
     <div className='mainDashboard'>
       <div id='intro'>
         <img id='logo' src='https://res.cloudinary.com/mfrazb/image/upload/v1695922059/1_sxtwzi.png' alt='Moat logo' />
-        <p>moat is a security-first monitoring tool that scans clusters for malicious activity and vulnerabilities. Users can display potential threats on a streamlined dashboard to quickly visualize, pinpoint, and remediate. moat's monitoring functionality is grounded in security best practices and leverages leading technologies like Prometheus and Grafana.</p>
+        <p className="text-block">Security-First Cluster Monitoring. Detect and mitigate threats with ease. Powered by Prometheus and Grafana, moat scans clusters, finds vulnerabilities, and delivers real-time threat insights.</p>
+      
       </div>
-
       <iframe src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/k8s_views_pods/kubernetes-views-pods?orgId=1&refresh=5s&var-datasource=prometheus&var-namespace=prometheus&var-pod=alertmanager-stable-kube-prometheus-sta-alertmanager-0&var-resolution=1s&from=1695854574920&to=1695858174920&theme=dark&panelId=29' width='450' height='200' frameBorder='0'></iframe>
       <iframe src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/2kmXP3d7z/kubernetes-pods?orgId=1&refresh=5s&from=1695867620911&to=1695868520911&panelId=3' width='450' height='200' frameBorder='0'></iframe>
       <iframe src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/4DFTt9Wnk/nginx?orgId=1&from=1695911399696&to=1695914999696&panelId=26' width='450' height='200' frameBorder='0'></iframe>
