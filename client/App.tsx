@@ -13,8 +13,11 @@ function App () {
 
   return (
     <div style={getStyle} id='origin'>
-      <MainDashboard/>
-      <Header open={open} openDrawer={openDrawer}/>
+      <MainDashboard />
+      <Header open={open} openDrawer={openDrawer} />
+      {/* TODO: Refactor to create grid container with divs and then update the CSS accordingly 
+        https://betterprogramming.pub/css-grid-in-react-f8323b521fab
+      */}
       {/*<SideNav open={open} openDrawer={openDrawer}/>*/}
       <Footer/>
     </div>

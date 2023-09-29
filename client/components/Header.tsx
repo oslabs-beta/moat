@@ -9,6 +9,8 @@ interface HeaderProps {
   openDrawer: Function
 }
 
+//TODO: Refactor to move sx styles to separate variables to make it more modular
+
 function Header (props: HeaderProps) {
   return (
     <div className="header">

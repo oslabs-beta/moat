@@ -6,7 +6,8 @@ interface NavProps {
   openDrawer: Function
 }
 
-/* 
+/*
+ 
 This is an MUI component which will create a sidebar that pops up on the left of the screen,
 it can be closed by clicking outside of it.
 
@@ -20,7 +21,6 @@ The 'open' and 'openDrawer' props are the state which controls whether the sideb
   </Drawer>
 
 */
-
 
 function SideNav (props: NavProps) {
   return (

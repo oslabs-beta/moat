@@ -2,6 +2,7 @@ import React from 'react';
 // error with parsing image, React says correct loader is not installed on pkg
 import logo from '../assets/moatIcon.png';
 
+// TODO: Make a dashboard item component that will modularize the iframes and pass the source as a prop so we can create a filter so users can customize their dashboard. Anago had a query so you can build a dashboard from your query so we can look into that. Max has ideas about this. 
 function MainDashboard() {
   return (
     <div className='mainDashboard'>
