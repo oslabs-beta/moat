@@ -2,8 +2,8 @@ import React from 'react';
 import { ListItem, ListItemButton, ListItemText } from '@mui/material';
 
 interface NavProps {
-  open: boolean,
-  openDrawer: Function
+  open: boolean;
+  toggleDrawer: Function;
 }
 
 /*
@@ -22,9 +22,9 @@ The 'open' and 'openDrawer' props are the state which controls whether the sideb
 
 */
 
-function SideNav (props: NavProps) {
+function SideNav(props: NavProps) {
   return (
-    <div className="sideNav">
+    <div className='sideNav'>
       <ListItemButton>
         <ListItemText>About</ListItemText>
       </ListItemButton>
@@ -36,7 +36,7 @@ function SideNav (props: NavProps) {
         <ListItemText>More Buttons</ListItemText>
       </ListItemButton>
     </div>
-  )
+  );
 }
 
 export default SideNav;
