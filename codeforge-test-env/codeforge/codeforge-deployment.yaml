@@ -28,19 +28,19 @@ spec:
         - name: codeforge-app-pod
           image: 604915685483.dkr.ecr.us-east-1.amazonaws.com/codeforge-app
           ports:
-            - containerPort: 5000
+            - containerPort: 3000
       nodeSelector:
         kubernetes.io/os: linux
 
 ---
-
 kind: Service
 apiVersion: v1
 metadata:
   name: codeforge
 spec:
   selector:
-    app: codeforge
+    app: codeforge-app
   ports:
-    - port: 5678
-
+    - protocol: TCP
+      port: 5678
+      targetPort: 5678
