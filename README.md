@@ -73,14 +73,14 @@ If you wish to contribute, or just learn from our progress, you are more then we
 1. Fork and clone the repository
 2. CREATE BRANCH with the format:
     > [!IMPORTANT]
-    > category/your-branch-name-here
+    > **category/your-branch-name-here**
 
-| Category | Description |
-| ------------- | ------------- |
-| hotfix | for quickly fixing critical issues, usually with a temporary solution  |
-| bugfix  | for fixing a bug  |
-| feature  | for adding, removing or modifying a feature  |
-| test  | for experimenting with something that is not an issue  |
+    | Category | Description |
+    | ------------- | ------------- |
+    | hotfix | for quickly fixing critical issues, usually with a temporary solution  |
+    | bugfix  | for fixing a bug  |
+    | feature  | for adding, removing or modifying a feature  |
+    | test  | for experimenting with something that is not an issue  |
 
 3. Guidelines for commit messages:
    - Capitalize first word
@@ -89,6 +89,6 @@ If you wish to contribute, or just learn from our progress, you are more then we
    - Commit early and often
    - Use multi-author commits 
 
-4. DID YOU ADD ANY SENSITIVE INFORMATION TO CODE? BEFORE YOU COMMIT, MOVE TO .ENV. UPDATE .ENV FILE VARIABLES LIST IN PROJECT HUB.
+4. DID YOU ADD ANY SENSITIVE INFORMATION TO CODE? Before you commit, move your sensitive data to a .env file. and add .env to .gitignore file.
 5. COMMIT when you make a meaningful change and use the guidelines.
 6. PUSH your code to your branch and submit a pull request.
