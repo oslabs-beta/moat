@@ -60,24 +60,43 @@ iframe {
 }
 
 /* SIDENAV CSS*/
-#sideNav {
-  box-shadow: 2px 2px 10px rgb(211, 211, 211);
-}
-
 #chevron {
   background: $headerColor;
   box-shadow: 2px 2px 10px rgb(209, 208, 208);
   text-align: right;
-  padding: 0rem 1.5rem;
+  padding: 0.07rem 1.5rem;
 }
 
-#sideNav ul,
-#sideNav p {
+#nav-content {
+  color: rgb(86, 86, 86);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.sideNav ul {
   list-style-type: none;
   font-size: larger;
   line-height: 1.5em;
-  color: rgb(86, 86, 86);
-  padding: 2rem;
+  padding-bottom: 2rem;
+}
+
+.large-text {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  padding-bottom: 1rem;
+}
+
+.security-feature {
+  padding-top: 1rem;
+}
+
+.small-text {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 /* DASHBOARD CSS */

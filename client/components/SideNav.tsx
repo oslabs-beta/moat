@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import HexagonIcon from '@mui/icons-material/Hexagon';
 
 interface NavProps {
   open: boolean;
@@ -18,7 +19,7 @@ function SideNav(props: NavProps) {
   const { toggleDrawer, open } = props;
   return (
     <Drawer
-      id='sideNav'
+      className='sideNav'
       variant='temporary'
       PaperProps={{ sx: { minWidth: '300px', width: '25%' } }}
       open={open}
@@ -28,16 +29,43 @@ function SideNav(props: NavProps) {
           sx={{ color: 'white' }}
           size='large'
           onClick={e => toggleDrawer(e)}>
-          <ChevronLeftIcon fontSize='large' />
+          <ChevronLeftIcon style={{ fontSize: 45 }} />
         </IconButton>
       </div>
-      <ul>
-        <li>Dashboard</li>
-        <li>Logs</li>
-        <li>Nodes</li>
-      </ul>
-
-      <p>About</p>
+      <div id='nav-content'>
+        <div id='top-nav-content'>
+          <ul>
+            <li>Dashboard</li>
+            <li>Nodes</li>
+            <li>Logs</li>
+          </ul>
+          <p className='large-text'>
+            <strong>moat</strong> is a security-first monitoring tool that
+            watches over Kubernetes clusters. View health data on the main
+            dashboard, visualize cluster nodes, and go in-depth with detailed
+            logs.
+          </p>
+          <p className='large-text'>
+            moat leverages Prometheus and Grafana to scan and share data about
+            K8s clusters.
+          </p>
+          <div className='security-feature'>
+            <h3>Security Feature 1 </h3>
+            <p className='small-text'>
+              <em>Launched Oct 12 2023</em>
+            </p>
+          </div>
+          <p className='large-text'>
+            View data about excessive log-in attempts to your AWS account.
+          </p>
+        </div>
+        <div id='bottom-nav-content'>
+          <p className='small-text'>
+            Built by Meredith Frazier Britt, Anil Kondaveeti, Gayle Martin, Ivy
+            Shmikler, and Max Weiner
+          </p>
+        </div>
+      </div>
     </Drawer>
   );
 }

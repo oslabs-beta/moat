@@ -18,7 +18,7 @@ function Header(props: HeaderProps) {
           <MenuIcon fontSize='large' />
         </IconButton>
         <h1>moat</h1>
-        <IconButton size='large' id='bell_icon'>
+        <IconButton id='bell_icon'>
           <NotificationsIcon fontSize='large' />
         </IconButton>
       </div>
