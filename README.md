@@ -12,27 +12,38 @@ Given this project is still in it's early stages, the instructions below will gu
 
 ## Initial Setup
 1. Fork and clone this repo.
-2. npm install locally in the moat directory
+2. npm install locally in the moat directory (NOTE: We should probably put all of our moat stuff in a separate folder from our codeforge stuff)
 
 ## Build Test Environment
-4. Create an AWS account and set up your IAM roles
-5. Create a kubernetese cluster on AWS
-6. Create a Docker image of your application (or use the example app in our repo) 
-7. Push your image to either ECR or Dockerhub
-8. Deploy to AWS using elasticbeanstalk, or your preferred method
-9. Connect your database to your application
+1. Create an AWS account and set up your IAM roles
+2. Create a kubernetese cluster on AWS
+3. Create a Docker image of your application (or use the example CodeForge app in our repo) 
+4. Push your image to either ECR or Dockerhub
+5. Deploy your application to AWS EC2 instance using elasticbeanstalk, or your preferred method
+6. Set up your database with RDS, or your preferred method
+7. Deploy your EC2 instance and database to your Kubernetes cluster
 
 ## Scan with Prometheus
 
 ## Configure Grafana
 
 ## Add Panels to Dashboard
+Once you have Grafana configured and your cluster data from Prometheus is being displayed in your dashboard, you should be able to embed iframes of key metrics into the moat dashboard. 
 
 ## Set Up AWS CloudWatch Alerts for Failed Login Attempts
-9. Set up CloudWatch alerts
-10. Create a CloudWatch alarm and SNS notification
-11. Lambda
-12. Grafana
+1. Install the CloudWatch Data Source plugin for Grafana. This plugin allows Grafana to fetch data from CloudWatch.
+  * Go to the Grafana home page, click on the gear icon (⚙️) on the left sidebar to access the configuration.
+  * Choose "Data Sources" and then click "Add data source."
+  * Search for "CloudWatch" and select it.
+  * Configure the CloudWatch data source with your AWS credentials and settings.
+2. Create or use existing Grafana Dashboards
+3. Set Up CloudWatch Alarms
+4. Create an SNS (Simple Notification Service) topic in AWS. This topic will be used to send notifications when alarms are triggered.
+5. In your CloudWatch alarm settings, configure actions to be taken when the alarm state changes to "ALARM." Add an action to publish a message to your SNS topic.
+6. Configure CloudWatch to send notifications to Grafana. You might need to set up a Lambda function that receives CloudWatch alarm notifications from SNS and forwards them to Grafana via HTTP.
+7. In Grafana, set up alerting rules for the panels on your dashboards. You can define alert conditions based on CloudWatch data. When an alert condition is met, Grafana can trigger actions, such as sending notifications or changing the state of a panel.
+8. Test the entire setup by triggering a CloudWatch alarm. This could involve generating simulated high CPU usage or other metric conditions that will trigger the alarms you've set up.
+
 
 # The Team 
 | Name | Contribution |
