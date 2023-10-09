@@ -22,13 +22,13 @@ Given this project is still in it's early stages, the instructions below will gu
 8. Deploy to AWS using elasticbeanstalk, or your preferred method
 9. Connect your database to your application
 
-# Scan with Prometheus
+## Scan with Prometheus
 
-# Configure Grafana
+## Configure Grafana
 
-# Add Panels to Dashboard
+## Add Panels to Dashboard
 
-# Set Up AWS CloudWatch Alerts for Failed Login Attempts
+## Set Up AWS CloudWatch Alerts for Failed Login Attempts
 9. Set up CloudWatch alerts
 10. Create a CloudWatch alarm and SNS notification
 11. Lambda
