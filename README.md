@@ -17,8 +17,15 @@ Our application is still in its development phase. Our efforts up to now have co
 Given this project is still in it's early stages, the instructions below will guide you through many of the same steps we took to build out our test environment. It will involve creating a Kubernetes cluster on AWS, deploying an application to it, and scanning it with Prometheus. CloudWatch alerts will allow you to identify when a user exceeds a specified login attempt threshold. You can leverage our frontend dashboard to display your Grafana panels and view the data that Prometheus scrapes from your cluster. 
 
 ## Initial Setup
-1. Fork and clone this repo.
-2. npm install locally in the moat directory (NOTE: We should probably put all of our moat stuff in a separate folder from our codeforge stuff)
+1. Fork and clone this repo, and then install the dependencies:
+```bash
+npm install
+```
+2. Launch moat from the command line:
+
+```bash
+npm run dev
+```
 
 ## Build Test Environment
 1. Create an AWS account and set up your IAM roles
