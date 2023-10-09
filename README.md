@@ -71,7 +71,10 @@ Once you have Grafana configured and your cluster data from Prometheus is being 
 If you wish to contribute, or just learn from our progress, you are more then welcome! Please follow these guidelines:
 
 1. Fork and clone the repository
-2. CREATE BRANCH with the format <category>/<your-branch-name-here>. Categories:
+2. CREATE BRANCH with the format:
+    ```
+     <category>/<your-branch-name-here>.
+    ```
 
 | Category | Description |
 | ------------- | ------------- |
