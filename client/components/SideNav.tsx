@@ -1,41 +1,44 @@
 import React from 'react';
-import { ListItem, ListItemButton, ListItemText } from '@mui/material';
+import {
+  Drawer,
+  IconButton,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+} from '@mui/material';
+
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 interface NavProps {
   open: boolean;
   toggleDrawer: Function;
 }
 
-/*
- 
-This is an MUI component which will create a sidebar that pops up on the left of the screen,
-it can be closed by clicking outside of it.
-
-The 'open' and 'openDrawer' props are the state which controls whether the sidebar is visible or not
-** They can be ignored if not using a collapsing sidebar **
-
-  <Drawer PaperProps={{ sx: { width: '25%' }}} open={props.open} onClose={() => props.openDrawer(!props.open)}>
-    <ListItem>
-      <ListItemText>Hello</ListItemText>
-    </ListItem>
-  </Drawer>
-
-*/
-
 function SideNav(props: NavProps) {
+  const { toggleDrawer, open } = props;
   return (
-    <div className='sideNav'>
-      <ListItemButton>
-        <ListItemText>About</ListItemText>
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemText>Logs</ListItemText>
-      </ListItemButton>
-      {/* Adding onClick functionality goes on the ListItemButton, any icons get added as nested components in the ListItemButton */}
-      <ListItemButton>
-        <ListItemText>More Buttons</ListItemText>
-      </ListItemButton>
-    </div>
+    <Drawer
+      id='sideNav'
+      variant='temporary'
+      PaperProps={{ sx: { minWidth: '300px', width: '25%' } }}
+      open={open}
+      onClose={() => toggleDrawer}>
+      <div id='chevron'>
+        <IconButton
+          sx={{ color: 'white' }}
+          size='large'
+          onClick={e => toggleDrawer(e)}>
+          <ChevronLeftIcon fontSize='large' />
+        </IconButton>
+      </div>
+      <ul>
+        <li>Dashboard</li>
+        <li>Logs</li>
+        <li>Nodes</li>
+      </ul>
+
+      <p>About</p>
+    </Drawer>
   );
 }
 

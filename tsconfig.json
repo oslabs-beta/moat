@@ -10,7 +10,8 @@
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["react/next", "react-dom/next"]
   },
   "include": ["./client/**/*", "./types/index.d.ts"]
 }

@@ -1,8 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { render } from 'react-dom';
 import App from './App';
 
-//TODO: Refactor to most recent version of react without deprecated methods (use createRoot)
-
-render(<App/>, document.getElementById('root'));
+// with TS, check if root element exists before rendering
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Failed to find the root element');
+const root = createRoot(rootElement);
+root.render(<App />);

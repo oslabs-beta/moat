@@ -14,11 +14,13 @@ $highlightColor: #edd60f;
 
 .container {
   max-width: 1200px;
+  margin: 0 auto;
 }
 
 h1 {
   color: white;
   font-size: 60px;
+  font-weight: 400;
   text-shadow: 1px 1px 3px 20px rgb(97, 97, 97);
 }
 
@@ -49,6 +51,7 @@ iframe {
 #header {
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
 }
 
 #menu_icon,
@@ -56,23 +59,35 @@ iframe {
   color: white;
 }
 
+/* SIDENAV CSS*/
 #sideNav {
-  /* position: fixed; 
-  z-index: 0; 
-  top: 5em; 
-  left: 0; 
-  height: 100vh;
-  background: $lightBackground;
   box-shadow: 2px 2px 10px rgb(211, 211, 211);
-  */
+}
+
+#chevron {
+  background: $headerColor;
+  box-shadow: 2px 2px 10px rgb(209, 208, 208);
+  text-align: right;
+  padding: 0rem 1.5rem;
+}
+
+#sideNav ul,
+#sideNav p {
+  list-style-type: none;
+  font-size: larger;
+  line-height: 1.5em;
+  color: rgb(86, 86, 86);
+  padding: 2rem;
 }
 
 /* DASHBOARD CSS */
 #dashboard-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
   #intro {
     display: flex;
     justify-content: center;
@@ -100,6 +115,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   font-family: Helvetica, sans-serif;
   background: $headerColor;
   background: linear-gradient(to top, #f0f0f0, #ffffff);
