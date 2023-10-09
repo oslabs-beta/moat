@@ -73,7 +73,7 @@ If you wish to contribute, or just learn from our progress, you are more then we
 1. Fork and clone the repository
 2. CREATE BRANCH with the format:
     > [!IMPORTANT]
-    > "<category>/<your-branch-name-here>"
+    > /<category>/<your-branch-name-here>/
 
 | Category | Description |
 | ------------- | ------------- |
