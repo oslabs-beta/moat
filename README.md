@@ -45,10 +45,10 @@ Once you have Grafana configured and your cluster data from Prometheus is being 
 
 ## Set Up AWS CloudWatch Alerts for Failed Login Attempts
 1. Install the CloudWatch Data Source plugin for Grafana. This plugin allows Grafana to fetch data from CloudWatch.
-  * Go to the Grafana home page, click on the gear icon (⚙️) on the left sidebar to access the configuration.
-  * Choose "Data Sources" and then click "Add data source."
-  * Search for "CloudWatch" and select it.
-  * Configure the CloudWatch data source with your AWS credentials and settings.
+   - Go to the Grafana home page, click on the gear icon (⚙️) on the left sidebar to access the configuration.
+   - Choose "Data Sources" and then click "Add data source."
+   - Search for "CloudWatch" and select it.
+   - Configure the CloudWatch data source with your AWS credentials and settings.
 2. Create or use existing Grafana Dashboards
 3. Set Up CloudWatch Alarms
 4. Create an SNS (Simple Notification Service) topic in AWS. This topic will be used to send notifications when alarms are triggered.
@@ -72,9 +72,8 @@ If you wish to contribute, or just learn from our progress, you are more then we
 
 1. Fork and clone the repository
 2. CREATE BRANCH with the format:
-    ```
-     <category>/<your-branch-name-here>.
-    ```
+    > [!IMPORTANT]
+    > <category>/<your-branch-name-here>.
 
 | Category | Description |
 | ------------- | ------------- |
@@ -84,11 +83,11 @@ If you wish to contribute, or just learn from our progress, you are more then we
 | test  | for experimenting with something that is not an issue  |
 
 3. Guidelines for commit messages:
-  * Capitalize first word
-  * Use active voice: “Create sidebar component”
-  * Give why/how context when helpful to other developers
-  * Commit early and often
-  * Use multi-author commits 
+   - Capitalize first word
+   - Use active voice: “Create sidebar component”
+   - Give why/how context when helpful to other developers
+   - Commit early and often
+   - Use multi-author commits 
 
 4. DID YOU ADD ANY SENSITIVE INFORMATION TO CODE? BEFORE YOU COMMIT, MOVE TO .ENV. UPDATE .ENV FILE VARIABLES LIST IN PROJECT HUB.
 5. COMMIT when you make a meaningful change and use the guidelines.
