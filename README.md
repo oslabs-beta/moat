@@ -68,4 +68,25 @@ Once you have Grafana configured and your cluster data from Prometheus is being 
 | Meredith Frazier Britt  | TBD  |
 
 # How to Contribute
-If you're interested in contributing to moat, please check out our Contributer README (link)
+If you wish to contribute, or just learn from our progress, you are more then welcome! Please follow these guidelines:
+
+1. Fork and clone the repository
+2. CREATE BRANCH with the format <category>/<your-branch-name-here>. Categories:
+
+| Category | Description |
+| ------------- | ------------- |
+| hotfix | for quickly fixing critical issues, usually with a temporary solution  |
+| bugfix  | for fixing a bug  |
+| feature  | for adding, removing or modifying a feature  |
+| test  | for experimenting with something that is not an issue  |
+
+3. Guidelines for commit messages:
+  * Capitalize first word
+  * Use active voice: “Create sidebar component”
+  * Give why/how context when helpful to other developers
+  * Commit early and often
+  * Use multi-author commits 
+
+4. DID YOU ADD ANY SENSITIVE INFORMATION TO CODE? BEFORE YOU COMMIT, MOVE TO .ENV. UPDATE .ENV FILE VARIABLES LIST IN PROJECT HUB.
+5. COMMIT when you make a meaningful change and use the guidelines.
+6. PUSH your code to your branch and submit a pull request.
