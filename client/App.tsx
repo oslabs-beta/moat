@@ -4,7 +4,6 @@ import { getStyle } from './scss/styles.scss';
 import Header from './components/Header';
 import SideNav from './components/SideNav';
 import Footer from './components/Footer';
-import Menu from './components/Menu';
 import NodeGraphContainer from './containers/NodeGraphContainer';
 import LogsContainer from './containers/LogsContainer';
 
@@ -40,8 +39,7 @@ const App: React.FC = () => {
   return (
     <div style={getStyle} id='origin'>
       <Header open={open} toggleDrawer={toggleDrawer} />
-      <Menu menuSelect={menuSelect}/>
-      <SideNav open={open} toggleDrawer={toggleDrawer} />
+      <SideNav open={open} toggleDrawer={toggleDrawer} menuSelect={menuSelect}/>
       {page}
       <Footer open={open} />
     </div>

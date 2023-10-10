@@ -9,9 +9,6 @@ const style = {
   button: {
     background: '#2a65e8'
   },
-  button_selected: {
-    background: 'cyan'
-  }
 };
 
 interface MenuProps {
@@ -25,7 +22,7 @@ function Menu(props: MenuProps) {
     <div id='menu-container'>
       <div id='menu'>
         <div></div>
-          <ButtonGroup variant="contained" aria-label="outlined primary button group">
+          <ButtonGroup variant="contained" aria-label="outlined primary button group" orientation='vertical'>
             <Button style={style.button} onClick={() => {menuSelect('main')}}>Main Dashboard</Button>
             <Button style={style.button} onClick={() => {menuSelect('node')}}>Node Graph</Button>
             <Button style={style.button} onClick={() => {menuSelect('logs')}}>Logs Dashboard</Button>
