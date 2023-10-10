@@ -8,7 +8,8 @@ import Footer from './components/Footer';
 const App: React.FC = () => {
   // REMEMBER: When passing state using TypeScript you need to setup an interface in the child component with the format of the props you want to pass in
 
-  // const drawerWidth =
+  // add state handler for page navigation
+  // render page based on state
   const [open, openDrawer] = useState<boolean>(false);
 
   const toggleDrawer = (event: MouseEvent) => {
@@ -21,6 +22,8 @@ const App: React.FC = () => {
       <Header open={open} toggleDrawer={toggleDrawer} />
       <SideNav open={open} toggleDrawer={toggleDrawer} />
       <MainDashboard open={open} />
+      {/* Log Dashboard */}
+      {/* Node Graph Dashboard */}
       <Footer open={open} />
     </div>
   );
