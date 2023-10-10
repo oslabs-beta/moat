@@ -59,13 +59,13 @@ Once you have Grafana configured and your cluster data from Prometheus is being 
 
 
 # The Team 
-| Name | Contribution |
-| ------------- | ------------- |
-| Anil Kondaveeti | TBD  |
-| Gayle Martin  | TBD  |
-| Ivy Shmikler  | TBD  |
-| Max Weiner  | TBD  |
-| Meredith Frazier Britt  | TBD  |
+| Name | Github | LinkedIn |
+| ------------- | ------------- | ------------- |
+| Anil Kondaveeti | TBD  | TBD  |
+| Gayle Martin  | https://github.com/palemartian  | https://www.linkedin.com/in/gaylem/  |
+| Ivy Shmikler  | TBD  | TBD  |
+| Max Weiner  | TBD  | TBD  |
+| Meredith Frazier Britt  | TBD  | TBD  |
 
 # How to Contribute
 If you wish to contribute, or just learn from our progress, you are more then welcome! Please follow these guidelines:
