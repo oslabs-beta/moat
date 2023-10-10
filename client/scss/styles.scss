@@ -140,6 +140,16 @@ iframe {
   background: linear-gradient(to top, #f0f0f0, #ffffff);
 }
 
+/* NODE GRAPH, LOGS CSS */
+#node-graph-container,
+#logs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#node-graph-container img {
+  width: 100%;
+}
 /* FOOTER */
 .footer {
   position: sticky;
