@@ -1,8 +1,24 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { render } from 'react-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
+import ErrorPage from './routes/ErrorPage';
+import MainDashboard from './containers/MainDashboard';
 
-//TODO: Refactor to most recent version of react without deprecated methods (use createRoot)
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <ErrorPage />,
+  },
+]);
 
-render(<App/>, document.getElementById('root'));
+// with TS, check if root element exists before rendering
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Failed to find the root element');
+const root = createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+);

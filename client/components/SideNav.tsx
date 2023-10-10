@@ -1,42 +1,73 @@
 import React from 'react';
-import { ListItem, ListItemButton, ListItemText } from '@mui/material';
+import {
+  Drawer,
+  IconButton,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+} from '@mui/material';
+
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import HexagonIcon from '@mui/icons-material/Hexagon';
 
 interface NavProps {
-  open: boolean,
-  openDrawer: Function
+  open: boolean;
+  toggleDrawer: Function;
 }
 
-/*
- 
-This is an MUI component which will create a sidebar that pops up on the left of the screen,
-it can be closed by clicking outside of it.
-
-The 'open' and 'openDrawer' props are the state which controls whether the sidebar is visible or not
-** They can be ignored if not using a collapsing sidebar **
-
-  <Drawer PaperProps={{ sx: { width: '25%' }}} open={props.open} onClose={() => props.openDrawer(!props.open)}>
-    <ListItem>
-      <ListItemText>Hello</ListItemText>
-    </ListItem>
-  </Drawer>
-
-*/
-
-function SideNav (props: NavProps) {
+function SideNav(props: NavProps) {
+  const { toggleDrawer, open } = props;
   return (
-    <div className="sideNav">
-      <ListItemButton>
-        <ListItemText>About</ListItemText>
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemText>Logs</ListItemText>
-      </ListItemButton>
-      {/* Adding onClick functionality goes on the ListItemButton, any icons get added as nested components in the ListItemButton */}
-      <ListItemButton>
-        <ListItemText>More Buttons</ListItemText>
-      </ListItemButton>
-    </div>
-  )
+    <Drawer
+      className='sideNav'
+      variant='temporary'
+      PaperProps={{ sx: { minWidth: '300px', width: '25%' } }}
+      open={open}
+      onClose={() => toggleDrawer}>
+      <div id='chevron'>
+        <IconButton
+          sx={{ color: 'white' }}
+          size='large'
+          onClick={e => toggleDrawer(e)}>
+          <ChevronLeftIcon style={{ fontSize: 45 }} />
+        </IconButton>
+      </div>
+      <div id='nav-content'>
+        <div id='top-nav-content'>
+          <ul>
+            <li>Dashboard</li>
+            <li>Nodes</li>
+            <li>Logs</li>
+          </ul>
+          <p className='large-text'>
+            <strong>moat</strong> is a security-first monitoring tool that
+            watches over Kubernetes clusters. View health data on the main
+            dashboard, visualize cluster nodes, and go in-depth with detailed
+            logs.
+          </p>
+          <p className='large-text'>
+            moat leverages Prometheus and Grafana to scan and share data about
+            K8s clusters.
+          </p>
+          <div className='security-feature'>
+            <h3>Security Feature 1 </h3>
+            <p className='small-text'>
+              <em>Launched Oct 12 2023</em>
+            </p>
+          </div>
+          <p className='large-text'>
+            View data about excessive log-in attempts to your AWS account.
+          </p>
+        </div>
+        <div id='bottom-nav-content'>
+          <p className='small-text'>
+            Built by Meredith Frazier Britt, Anil Kondaveeti, Gayle Martin, Ivy
+            Shmikler, and Max Weiner
+          </p>
+        </div>
+      </div>
+    </Drawer>
+  );
 }
 
 export default SideNav;
