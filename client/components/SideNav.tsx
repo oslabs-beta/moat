@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import {
   Drawer,
   IconButton,
@@ -10,13 +10,17 @@ import {
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import HexagonIcon from '@mui/icons-material/Hexagon';
 
+import Menu from './Menu';
+
 interface NavProps {
   open: boolean;
   toggleDrawer: Function;
+  menuSelect: Dispatch<SetStateAction<string>>;
 }
 
 function SideNav(props: NavProps) {
   const { toggleDrawer, open } = props;
+  const { menuSelect } = props;
   return (
     <Drawer
       className='sideNav'
@@ -33,12 +37,8 @@ function SideNav(props: NavProps) {
         </IconButton>
       </div>
       <div id='nav-content'>
+        <Menu menuSelect={menuSelect}/>
         <div id='top-nav-content'>
-          <ul>
-            <li>Dashboard</li>
-            <li>Nodes</li>
-            <li>Logs</li>
-          </ul>
           <p className='large-text'>
             <strong>moat</strong> is a security-first monitoring tool that
             watches over Kubernetes clusters. View health data on the main
