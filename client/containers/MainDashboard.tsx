@@ -25,59 +25,70 @@ function MainDashboard(props: MainDashboardProps) {
         </p>
       </div>
       <div id='dashboard'>
+        {/* Incoming Event Logs */}
         <iframe
-          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/k8s_views_pods/kubernetes-views-pods?orgId=1&refresh=5s&var-datasource=prometheus&var-namespace=prometheus&var-pod=alertmanager-stable-kube-prometheus-sta-alertmanager-0&var-resolution=1s&from=1695854574920&to=1695858174920&theme=dark&panelId=29'
+          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/cb5089a3-f435-418a-bb4c-7d0612382cd3/amazon-cloudwatch-logs-copy?orgId=1&from=1696950373873&to=1696961173873&panelId=2'
+          width='925'
+          height='200'
+          frameBorder='0'></iframe>
+        {/* Scrape Duration */}
+        <iframe
+          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/prometheus/prometheus-2-0-stats?orgId=1&refresh=1m&from=1696956679543&to=1696960279543&panelId=14'
           width='450'
           height='200'
           frameBorder='0'></iframe>
+        {/* RDS Database Connection */}
         <iframe
-          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/2kmXP3d7z/kubernetes-pods?orgId=1&refresh=5s&from=1695867620911&to=1695868520911&panelId=3'
+          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/AWSRDSdbi/aws-rds?orgId=1&from=1696959579504&to=1696963179504&panelId=18'
           width='450'
           height='200'
           frameBorder='0'></iframe>
+        {/*K8s cluster CPU Usage */}
         <iframe
-          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/4DFTt9Wnk/nginx?orgId=1&from=1695911399696&to=1695914999696&panelId=26'
+          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/zwArunW4k/kubernetes-cluster-resource-summary?orgId=1&from=1696958014740&to=1696961614740&panelId=43'
           width='450'
           height='200'
           frameBorder='0'></iframe>
+        {/* K8s cluster Memory Usage */}
         <iframe
-          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/4DFTt9Wnk/nginx?orgId=1&from=1695911426942&to=1695915026942&panelId=35'
+          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/zwArunW4k/kubernetes-cluster-resource-summary?orgId=1&from=1696958089290&to=1696961689290&panelId=45'
           width='450'
           height='200'
           frameBorder='0'></iframe>
+        {/*Node overall resource overview */}
         <iframe
-          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/R6abPf9Zz/kubernetes-apiserver?orgId=1&from=1695911514627&to=1695915114627&panelId=8'
+          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/PwMJtdvnz/1-k8s-for-prometheus-dashboard-20211010-en?orgId=1&from=1696961624380&to=1696963424380&panelId=78'
+          width='925'
+          height='400'
+          frameBorder='0'></iframe>
+        {/* RDS Network Traffic */}
+        {/* <iframe
+          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/af53f72f-01b9-491a-880e-2cc816aa4014/amazon-rds-os-metrics?orgId=1&from=1696960549113&to=1696964149113&panelId=10'
+          width='450'
+          height='200'
+          frameBorder='0'></iframe> */}
+        {/*NGINX Network Input  */}
+        <iframe
+          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/4DFTt9Wnk/nginx?orgId=1&from=1696959032037&to=1696962632037&panelId=26'
           width='450'
           height='200'
           frameBorder='0'></iframe>
+        {/* NGINX Network Output */}
         <iframe
-          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/R6abPf9Zz/kubernetes-apiserver?orgId=1&from=1695911582346&to=1695915182346&panelId=2'
+          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/4DFTt9Wnk/nginx?orgId=1&from=1696959223073&to=1696962823073&panelId=35'
           width='450'
           height='200'
           frameBorder='0'></iframe>
+        {/* Pod Network I/O */}
         <iframe
-          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/zwArunW4k/kubernetes-cluster-resource-summary?orgId=1&from=1695914444322&to=1695918044322&panelId=43'
-          width='450'
-          height='200'
+          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/2kmXP3d7z/kubernetes-pods?orgId=1&refresh=5s&from=1696961060580&to=1696961960580&panelId=3'
+          width='925'
+          height='400'
           frameBorder='0'></iframe>
+        {/* Pods with OOM killed containters */}
         <iframe
-          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/zwArunW4k/kubernetes-cluster-resource-summary?orgId=1&from=1695914418213&to=1695918018213&panelId=45'
-          width='450'
-          height='200'
-          frameBorder='0'></iframe>
-        <iframe
-          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/zrP9cXD7l/1-cluster-and-node-health-and-scaling?orgId=1&from=1695872791859&to=1695915991859&panelId=21'
-          width='450'
-          height='200'
-          frameBorder='0'></iframe>
-        <iframe
-          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/zrP9cXD7l/1-cluster-and-node-health-and-scaling?orgId=1&from=1695872817479&to=1695916017479&panelId=5'
-          width='450'
-          height='200'
-          frameBorder='0'></iframe>
-        <iframe
-          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/RlEVpGmVk/oom-and-restarts?orgId=1&from=1695914037541&to=1695914937541&panelId=33'
-          width='900'
+          src='http://ab3008d30e38b46348e5df77df694e20-819087825.us-east-1.elb.amazonaws.com/d-solo/RlEVpGmVk/oom-and-restarts?orgId=1&from=1696958456192&to=1696959356192&panelId=33'
+          width='925'
           height='200'
           frameBorder='0'></iframe>
       </div>
