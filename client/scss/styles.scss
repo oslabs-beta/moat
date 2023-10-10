@@ -59,6 +59,17 @@ iframe {
   color: white;
 }
 
+/* MENU CSS */
+#menu-container {
+  padding: 0rem 1.5rem;
+}
+
+#menu {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
 /* SIDENAV CSS*/
 #chevron {
   background: $headerColor;
