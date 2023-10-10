@@ -1,0 +1,185 @@
+@import url(https://db.onlinewebfonts.com/c/5c81010800152b142ea357ccbee8c40e?family=Euphemia);
+
+$headerColor: #326ce5;
+$lightBorder: 0.5px solid #a5a5a5;
+$lightBackground: #ffffff;
+$mediumBackground: #ddefff;
+$darkBackground: #1a1a1a;
+$accentColor: #87abf8;
+$secondaryColor: #639db0;
+$highlightColor: #edd60f;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: white;
+  font-size: 60px;
+  font-weight: 400;
+  align-self: center;
+  text-shadow: 1px 1px 3px 20px rgb(97, 97, 97);
+}
+
+iframe {
+  box-shadow: 2px 2px 10px rgb(209, 208, 208);
+  margin: 0.75rem;
+}
+
+/* APP-LEVEL CONTAINER */
+#origin {
+  display: flex;
+  flex-direction: column;
+}
+
+.getStyle {
+  background: $lightBackground;
+  border: $lightBorder;
+}
+
+/* HEADER CSS */
+#header-container {
+  background: #2a65e8;
+  border: $lightBorder;
+  padding: 0rem 1.5rem;
+  box-shadow: 2px 2px 10px rgb(209, 208, 208);
+}
+
+#header {
+  font-family: 'Euphemia';
+  letter-spacing: -0.2em;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+#menu_icon,
+#bell_icon {
+  color: white;
+}
+
+/* MENU CSS */
+#menu-container {
+  padding: 0rem 1.5rem;
+}
+
+#menu {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+/* SIDENAV CSS*/
+#chevron {
+  background: $headerColor;
+  box-shadow: 2px 2px 10px rgb(209, 208, 208);
+  text-align: right;
+  padding: 0.07rem 1.5rem;
+}
+
+#nav-content {
+  color: rgb(86, 86, 86);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60vh;
+}
+
+.large-text {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  padding-bottom: 1rem;
+}
+
+.security-feature {
+  padding-top: 1rem;
+}
+
+.small-text {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+/* DASHBOARD CSS */
+#dashboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  #intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    #logo {
+      max-width: 15%;
+      min-width: 15%;
+      -webkit-filter: drop-shadow(5px 5px 5px #222);
+      filter: drop-shadow(1px 1px 5px #7d7d7d);
+    }
+    .text-block {
+      max-width: 50%;
+      font-size: larger;
+      line-height: 1.5em;
+      padding: 2em;
+      color: rgb(86, 86, 86);
+      text-align: justify;
+      text-justify: inter-word;
+    }
+  }
+}
+
+#dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica, sans-serif;
+  background: $headerColor;
+  background: linear-gradient(to top, #f0f0f0, #ffffff);
+}
+
+/* NODE GRAPH, LOGS CSS */
+#node-graph-container,
+#logs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#node-graph-container img {
+  width: 100%;
+}
+/* FOOTER */
+.footer {
+  position: sticky;
+  background: #2a65e8;
+  color: white;
+  border: $lightBorder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 2em;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  #sidenav {
+    display: none;
+  }
+  #dashboard-container {
+    #intro {
+      /* stack logo and dashboard description */
+      flex-direction: column;
+    }
+  }
+}

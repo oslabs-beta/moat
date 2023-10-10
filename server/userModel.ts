@@ -14,9 +14,13 @@ const userSchema = new Schema<IUser>({
   email: { type: String, required: true, unique: true },
 });
 
+//TODO: Set up pre-functions to implement encryption with BCrypt
+
 const User = model<IUser>('User', userSchema);
 
 run().catch(err => console.log(err));
+
+//TODO: Move sensitive info into .env file
 
 async function run() {
   await connect('mongodb+srv://fantaaastic5:Hug8pCmJec2X20Pr@moat.k9sj1oh.mongodb.net/?retryWrites=true&w=majority');

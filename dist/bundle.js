@@ -1,1 +1,0 @@
-(()=>{"use strict";var e=document.createElement("h1");e.innerHTML="Hello from client/index.ts";var n=document.createElement("div");n.appendChild(e),document.body.appendChild(n),console.log("Hello from console")})();

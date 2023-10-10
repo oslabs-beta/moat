@@ -1,19 +1,17 @@
 {
-  "ts-node": {
-    "compilerOptions": {
-      "module": "commonjs"
-    }
-  },
   "compilerOptions": {
-    "outDir": "./dist/",
+    "module": "commonjs",
+    "outDir": "./dist",
     "noImplicitAny": true,
     "strict": true,
-    "module": "es6",
+    // "module": "es6",
     "target": "es5",
     "jsx": "react",
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
-  }
+    // "types": ["react/next", "react-dom/next"]
+  },
+  "include": ["./client/**/*", "./types/index.d.ts"]
 }
