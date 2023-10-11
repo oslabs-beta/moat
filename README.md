@@ -1,6 +1,8 @@
 <p align="center">
-  <img width="350" src="https://res.cloudinary.com/mfrazb/image/upload/v1695043154/moat/moat-smArtboard_1_wrq1bf.png" alt="moat small logo"> 
+  <img width="350" src="https://res.cloudinary.com/mfrazb/image/upload/v1695922059/1_sxtwzi.png" alt="moat logo"> 
 </p>
+
+
 
 <div align= "center">
 
