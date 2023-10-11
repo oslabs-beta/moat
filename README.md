@@ -29,16 +29,70 @@ npm run dev
 
 ## Build Test Environment
 1. Create an AWS account and set up your IAM roles
-2. Create a kubernetese cluster on AWS
-3. Create a Docker image of your application (or use the example CodeForge app in our repo) 
-4. Push your image to either ECR or Dockerhub
+   - While all actions *can* be done in the root user’s account, it is *NOT* recommended to use the root user for anything other than setting up IAM roles
+   - Set up a user group with the AdministratorAccess policy and set up any additional IAM user roles from there. Use the rule of least-privilege for granting permissions.
+2. Create a kubernetes cluster on AWS using EKS. Once the kubernetes cluster has been spun up, you will be use AWS’s console or the AWS CLI to add, edit, and stop deployments
+3. Create a Docker image of your application (or use the example CodeForge app in our repo)
+4. Push your image to either ECR or Docker Hub. Remember the repo and organization name, it will be important when creating the .yaml files for deploying the EC2 instance to our k8s cluster
 5. Deploy your application to AWS EC2 instance using elasticbeanstalk, or your preferred method
-6. Set up your database with RDS, or your preferred method
+6. Set up your database with RDS, deploy your own database to the cluster, or use your preferred method
 7. Deploy your EC2 instance and database to your Kubernetes cluster
+8. Configure nginx-ingress controller to serve EC2 instance through an external URI. Make sure that the ports being exposed are the same ports being used by your application (CodeForge uses port 3000)
+9. After testing, *REMEMBER* to tear down all unused AWS resource, they *WILL* charge you
 
-## Scan with Prometheus
+## Command Line Setup
+1. Install AWS CLI and Configure AWS Credentials
+   - After AWS CLI is installed: Go to AWS account > security credentials > access keys > create new access key
+   - Create IAM Role with administration access and make sure all services and users have been assigned to use this Role
+   - Run the command aws configure and enter AWS credentials (If running into permissions issues you can use the root users credentials to configure AWS but this is NOT recommended and is VERY unsecure)
+2. Install and setup kubectl (Kubernetes Command Line Tool)
+3. Install and setup Helm (Kubernetes Package Manager)
+4. Install and setup eksctl (CLI for Amazon EKS)
+   - After instilation, you can either create a cluster here or pull an existing one
+   - To pull an existing cluster, run the command `eksctl get cluster --name your-cluster-name --region your-region`. Make sure that everything on AWS is using the same region!
+5. Update Kube Config and connect to EKS cluster
+   - Run the command  `aws eks update-kubeconfig --name your-cluster-name --region your-region`
+   - You can verify this connection by running kubectl get nodes
 
-## Configure Grafana
+## Install Prometheus and Grafana
+The following commands will install (and deploy?) Prometheus and Grafana OSS (_Not Grafana Cloud_) as a sidecar container on your Kubernetes Cluster
+1. Add Helm Stable Charts for your local client
+  `helm repo add stable https://charts.helm.sh/stable`
+2. Add Prometheus Helm repo
+  `helm repo add prometheus-community https://prometheus-community.github.io/helm-charts`
+3. Create Prometheus namespace
+  `helm repo add prometheus-community https://prometheus-community.github.io/helm-charts`
+4. Install Prometheus
+  `helm install stable prometheus-community/kube-prometheus-stack -n prometheus`
+5. Verify by running `kubectl get pods -n prometheus`
+6. Edit Prometheus and Grafana service files to use LoadBalancer. 
+    `kubectl get svc -n prometheus`
+    - Grafana will be installed along with Prometheus, so no need to install it separatly
+    `kubectl edit svc stable-kube-prometheus-sta-prometheus -n prometheus`
+    - At the bottom of this service file, under spec, change type from ClusterIP to type:LoadBalancer. Under status, change to loadBalancer: {} Save the file
+6. Verify type and status have been changed
+    `kubectl get svc -n prometheus`
+7. Now do the same for Grafana
+    `kubectl edit svc stable-grafana -n prometheus`
+8. Change type and status from ClusterIP to LoadBalancer. This will provide a URL to access both the Prometheus and Grafana Servers
+    `kubectl get svc -n prometheus`
+9. Grafana default login credientials
+    - Username: admin
+    - Password: prom-operatior
+10. Access secrets by running `kubectl get svc -n prometheus`
+11. Prometheus should already be configured as a data source in Grafana. 
+12. On the top search bar click Import Dashboard
+13. Under Import from Grafana.com, enter `15760`
+14. Select Prometheus as the data source. This will load the pre-configured dashboard Kubernetes/Views/Pods
+15. Create your own dashboard panels by querying Prometheus using PromQL, or view other pre-configured dashboards here
+16. Update Grafana configuration to allow embedding
+17. Navigate to the grafana-configmap.yaml in the repo, and run the following comand
+    `kubectl apply -f /path_to/grafana-configmap.yaml`
+18. Verify changes are reflected in Grafana: Home > Administration > Settings > security > allow_embedding=true
+19. You can now embed dashboard panels on an external website!
+
+Source for installing Prometheus on EKS: https://medium.com/@maheshbiradar8887/eks-monitoring-using-helm-prometheus-and-grafana-dashboard-e47093c08ece
+
 
 ## Add Panels to Dashboard
 Once you have Grafana configured and your cluster data from Prometheus is being displayed in your dashboard, you should be able to embed iframes of key metrics into the moat dashboard. 
@@ -61,11 +115,11 @@ Once you have Grafana configured and your cluster data from Prometheus is being 
 # The Team 
 | Name | Github | LinkedIn |
 | ------------- | ------------- | ------------- |
-| Anil Kondaveeti | TBD  | TBD  |
+| Anil Kondaveeti | https://github.com/Akon530  | http://www.linkedin.com/in/anil-kondaveeti-23175320b  |
 | Gayle Martin  | https://github.com/palemartian  | https://www.linkedin.com/in/gaylem/  |
-| Ivy Shmikler  | TBD  | TBD  |
-| Max Weiner  | TBD  | TBD  |
-| Meredith Frazier Britt  | TBD  | TBD  |
+| Ivy Shmikler  | https://github.com/ishmikler  | http://www.linkedin.com/in/ivy-shmikler  |
+| Max Weiner  | https://github.com/maxweiner02  | https://www.linkedin.com/in/max-j-weiner/  |
+| Meredith Frazier Britt  | https://github.com/mfrazb  | https://www.linkedin.com/in/meredithfrazierbritt/  |
 
 # How to Contribute
 If you wish to contribute, or just learn from our progress, you are more then welcome! Please follow these guidelines:
