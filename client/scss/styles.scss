@@ -152,13 +152,13 @@ iframe {
 /* NODE GRAPH, LOGS CSS */
 #node-graph-container,
 #logs-container {
-  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   margin: 0 auto;
 }
 
-#node-graph-container img {
-  width: 100%;
-}
 /* FOOTER */
 .footer {
   position: sticky;
