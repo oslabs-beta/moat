@@ -45,7 +45,7 @@ iframe {
 
 /* HEADER CSS */
 #header-container {
-  background: #2a65e8;
+  background: linear-gradient(90deg, #87abf8, #639db0);
   border: $lightBorder;
   padding: 0rem 1.5rem;
   box-shadow: 2px 2px 10px rgb(209, 208, 208);
@@ -77,7 +77,7 @@ iframe {
 
 /* SIDENAV CSS*/
 #chevron {
-  background: $headerColor;
+  background: #87abf8;
   box-shadow: 2px 2px 10px rgb(209, 208, 208);
   text-align: right;
   padding: 0.07rem 1.5rem;
@@ -162,7 +162,7 @@ iframe {
 /* FOOTER */
 .footer {
   position: sticky;
-  background: #2a65e8;
+  background: linear-gradient(90deg, #87abf8, #639db0);
   color: white;
   border: $lightBorder;
   display: flex;

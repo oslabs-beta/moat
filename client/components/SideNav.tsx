@@ -25,7 +25,12 @@ function SideNav(props: NavProps) {
     <Drawer
       className='sideNav'
       variant='temporary'
-      PaperProps={{ sx: { minWidth: '300px', width: '25%' } }}
+      PaperProps={{
+        sx: {
+          minWidth: '300px',
+          width: '25%',
+        },
+      }}
       open={open}
       onClose={() => toggleDrawer}>
       <div id='chevron'>
@@ -37,7 +42,7 @@ function SideNav(props: NavProps) {
         </IconButton>
       </div>
       <div id='nav-content'>
-        <Menu menuSelect={menuSelect}/>
+        <Menu menuSelect={menuSelect} />
         <div id='top-nav-content'>
           <p className='large-text'>
             <strong>moat</strong> is a security-first monitoring tool that
