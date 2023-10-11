@@ -40,7 +40,7 @@ The following instructions are for building a test environment on AWS. Keep in m
 6. Set up your database with RDS, deploy your own database to the cluster, or use your preferred method
 7. Deploy your EC2 instance and database to your Kubernetes cluster
 8. Configure nginx-ingress controller to serve EC2 instance through an external URI. Make sure that the ports being exposed are the same ports being used by your application (CodeForge uses port 3000)
-9. After testing, *REMEMBER* to tear down all unused AWS resource, they *WILL* charge you
+9. After testing, *REMEMBER* to tear down all unused AWS resources, they *WILL* charge you
 
 ## Command Line Setup
 1. Install AWS CLI and Configure AWS Credentials
@@ -57,7 +57,8 @@ The following instructions are for building a test environment on AWS. Keep in m
    - You can verify this connection by running kubectl get nodes
 
 ## Install Prometheus and Grafana
-The following commands will install (and deploy?) Prometheus and Grafana OSS (_Not Grafana Cloud_) as a sidecar container on your Kubernetes Cluster
+The following commands will install the Prometheus and Grafana OSS (_Not Grafana Cloud_) as a sidecar container on your Kubernetes Cluster.
+
 1. Add Helm Stable Charts for your local client
   `helm repo add stable https://charts.helm.sh/stable`
 2. Add Prometheus Helm repo
@@ -93,8 +94,7 @@ The following commands will install (and deploy?) Prometheus and Grafana OSS (_N
 18. Verify changes are reflected in Grafana: Home > Administration > Settings > security > allow_embedding=true
 19. You can now embed dashboard panels on an external website!
 
-Source for installing Prometheus on EKS: https://medium.com/@maheshbiradar8887/eks-monitoring-using-helm-prometheus-and-grafana-dashboard-e47093c08ece
-
+*Source for installing Prometheus on EKS:* https://medium.com/@maheshbiradar8887/eks-monitoring-using-helm-prometheus-and-grafana-dashboard-e47093c08ece
 
 ## Add Panels to Dashboard
 Once you have Grafana configured and your cluster data from Prometheus is being displayed in your dashboard, you should be able to embed iframes of key metrics into the moat dashboard. 
