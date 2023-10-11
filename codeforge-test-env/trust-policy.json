@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::604915685483:user/lenstolines:oidc.eks.us-east-1.amazonaws.com/id/2C96AA1BE17BCE86F59E8FBA6D1056CE"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.us-east-1.amazonaws.com/id/2C96AA1BE17BCE86F59E8FBA6D1056CE": "system:serviceaccount:default:loki"
+        }
+      }
+    }
+  ]
+}
