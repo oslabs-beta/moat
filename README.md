@@ -28,6 +28,8 @@ npm run dev
 ```
 
 ## Build Test Environment
+The following instructions are for building a test environment on AWS. Keep in mind, this will cost money. If you want a free alternative, try building a test environment locally with minikube. 
+
 1. Create an AWS account and set up your IAM roles
    - While all actions *can* be done in the root user’s account, it is *NOT* recommended to use the root user for anything other than setting up IAM roles
    - Set up a user group with the AdministratorAccess policy and set up any additional IAM user roles from there. Use the rule of least-privilege for granting permissions.
@@ -67,7 +69,7 @@ The following commands will install (and deploy?) Prometheus and Grafana OSS (_N
 5. Verify by running `kubectl get pods -n prometheus`
 6. Edit Prometheus and Grafana service files to use LoadBalancer. 
     `kubectl get svc -n prometheus`
-    - Grafana will be installed along with Prometheus, so no need to install it separatly
+    - Grafana will be installed along with Prometheus, so no need to install it separately
     `kubectl edit svc stable-kube-prometheus-sta-prometheus -n prometheus`
     - At the bottom of this service file, under spec, change type from ClusterIP to type:LoadBalancer. Under status, change to loadBalancer: {} Save the file
 6. Verify type and status have been changed
