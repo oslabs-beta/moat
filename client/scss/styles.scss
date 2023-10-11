@@ -1,3 +1,5 @@
+@import url(https://db.onlinewebfonts.com/c/5c81010800152b142ea357ccbee8c40e?family=Euphemia);
+
 $headerColor: #326ce5;
 $lightBorder: 0.5px solid #a5a5a5;
 $lightBackground: #ffffff;
@@ -21,6 +23,7 @@ h1 {
   color: white;
   font-size: 60px;
   font-weight: 400;
+  align-self: center;
   text-shadow: 1px 1px 3px 20px rgb(97, 97, 97);
 }
 
@@ -49,6 +52,8 @@ iframe {
 }
 
 #header {
+  font-family: 'Euphemia';
+  letter-spacing: -0.2em;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -147,13 +152,13 @@ iframe {
 /* NODE GRAPH, LOGS CSS */
 #node-graph-container,
 #logs-container {
-  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   margin: 0 auto;
 }
 
-#node-graph-container img {
-  width: 100%;
-}
 /* FOOTER */
 .footer {
   position: sticky;

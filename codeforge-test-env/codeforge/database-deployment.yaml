@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: database-service
+  name: database-service
+spec:
+  externalName: cfdb-prod-instance-1.czshkme9oisa.us-east-1.rds.amazonaws.com
+  selector:
+    app: database-service
+  type: ExternalName
+  ports:
+    - port: 5432
+      protocol: TCP
+      targetPort: 5432
+status:
+  loadBalancer: {}
