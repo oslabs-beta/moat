@@ -76,7 +76,7 @@ The following commands will install the Prometheus and Grafana OSS (_Not Grafana
 9. Grafana default login credientials:
     - **Username:** admin
     - **Password:** prom-operatior
-10. Access secrets by running `kubectl get svc -n prometheus`.
+10. Access secrets by running `kubectl get svc -n prometheus`
 11. Prometheus should already be configured as a data source in Grafana. 
 12. On the top search bar click Import Dashboard.
 13. Under Import from Grafana.com, enter `15760`.
