@@ -92,18 +92,10 @@ The following commands will install the Prometheus and Grafana OSS (_Not Grafana
 Once you have Grafana configured and your cluster data from Prometheus is being displayed in your dashboard, you should be able to embed iframes of key metrics into the moat dashboard. 
 
 ## Set Up AWS CloudWatch Alerts for Failed Login Attempts
-1. Set up a CloudWatch alarm for sign-in failures in AWS: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html#cloudwatch-alarms-for-cloudtrail-signin
-2. Create an SNS (Simple Notification Service) topic in AWS. This topic will be used to send notifications when alarms are triggered. See AWS docs: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation
+1. Set up a [CloudWatch alarm](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html#cloudwatch-alarms-for-cloudtrail-signin) for sign-in failures in AWS
+2. Create an [SNS (Simple Notification Service) topic](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in AWS. This topic will be used to send notifications when alarms are triggered.
 3. In your CloudWatch alarm settings, configure actions to be taken when the alarm state changes to "ALARM." Add an action to publish a message to your SNS topic.
-4. Set up a Lambda function that receives CloudWatch alarm notifications from SNS and forwards them to Grafana.
-5. Install the CloudWatch Data Source plugin for Grafana. This plugin allows Grafana to fetch data from CloudWatch.
-   - Go to the Grafana home page, click on the gear icon (⚙️) on the left sidebar to access the configuration.
-   - Choose "Data Sources" and then click "Add data source."
-   - Search for "CloudWatch" and select it.
-   - Configure the CloudWatch data source with your AWS credentials and settings.
-6. Create or use existing Grafana Dashboards
-8. 
-9. Configure CloudWatch to send notifications to Grafana. You might need to set up a Lambda function. Here is the python code we used:
+4. Set up a Lambda function that receives CloudWatch alarm notifications and exposes them in Grafana. Here is a helpful [tutorial](https://www.youtube.com/watch?v=vwYy8GUV8Zw) and the python code we used:
 
 ```python
 import boto3
@@ -155,8 +147,13 @@ def lambda_handler(event, context):
 
     return response
 ```
-11. In Grafana, set up alerting rules for the panels on your dashboards. You can define alert conditions based on CloudWatch data. When an alert condition is met, Grafana can trigger actions, such as sending notifications or changing the state of a panel.
-12. Test the entire setup by triggering a CloudWatch alarm with excessive login attempts. 
+11. Install the CloudWatch Data Source plugin for Grafana. This plugin allows Grafana to fetch data from CloudWatch.
+   - Go to the Grafana home page, click on the gear icon (⚙️) on the left sidebar to access the configuration.
+   - Choose "Data Sources" and then click "Add data source."
+   - Search for "CloudWatch" and select it.
+   - Configure the CloudWatch data source with your AWS credentials and settings.
+12. In Grafana, set up alerting rules for the panels on your dashboards. You can define alert conditions based on CloudWatch data. When an alert condition is met, Grafana can trigger actions, such as sending notifications or changing the state of a panel.
+13. Test the entire setup by triggering a CloudWatch alarm with excessive login attempts. 
 
 
 # The Team 
