@@ -59,30 +59,22 @@ The following instructions are for building a test environment on AWS. Keep in m
 ## Install Prometheus and Grafana
 The following commands will install the Prometheus and Grafana OSS (_Not Grafana Cloud_) as a sidecar container on your Kubernetes Cluster.
 
-1. Add Helm Stable Charts for your local client.
-  `helm repo add stable https://charts.helm.sh/stable`
-2. Add Prometheus Helm repo.
-  `helm repo add prometheus-community https://prometheus-community.github.io/helm-charts`
-3. Create Prometheus namespace.
-  `helm repo add prometheus-community https://prometheus-community.github.io/helm-charts`
-4. Install Prometheus.
-  `helm install stable prometheus-community/kube-prometheus-stack -n prometheus`
+1. Add Helm Stable Charts for your local client: `helm repo add stable https://charts.helm.sh/stable`
+2. Add Prometheus Helm repo: `helm repo add prometheus-community https://prometheus-community.github.io/helm-charts`
+3. Create Prometheus namespace: `helm repo add prometheus-community https://prometheus-community.github.io/helm-charts`
+4. Install Prometheus: `helm install stable prometheus-community/kube-prometheus-stack -n prometheus`
 5. Verify by running `kubectl get pods -n prometheus`
-6. Edit Prometheus and Grafana service files to use LoadBalancer. 
-    `kubectl get svc -n prometheus`
-    - Grafana will be installed along with Prometheus, so no need to install it separately.
-    `kubectl edit svc stable-kube-prometheus-sta-prometheus -n prometheus`
+6. Edit Prometheus and Grafana service files to use LoadBalancer: `kubectl get svc -n prometheus`
+    - Grafana will be installed along with Prometheus, so no need to install it separately
+    - `kubectl edit svc stable-kube-prometheus-sta-prometheus -n prometheus`
     - At the bottom of this service file, under spec, change type from ClusterIP to `type: LoadBalancer`. Under status, change to `loadBalancer: {}`. Save the file.
-6. Verify type and status have been changed.
-    `kubectl get svc -n prometheus`
-7. Now do the same for Grafana.
-    `kubectl edit svc stable-grafana -n prometheus`
-8. Change type and status from ClusterIP to LoadBalancer. This will provide a URL to access both the Prometheus and Grafana Servers.
-    `kubectl get svc -n prometheus`
-9. Grafana default login credientials.
+6. Verify type and status have been changed: `kubectl get svc -n prometheus`
+7. Now do the same for Grafana: `kubectl edit svc stable-grafana -n prometheus`
+8. Change type and status from ClusterIP to LoadBalancer: `kubectl get svc -n prometheus`. This will provide a URL to access both the Prometheus and Grafana Servers.
+9. Grafana default login credientials:
     - **Username:** admin
     - **Password:** prom-operatior
-10. Access secrets by running `kubectl get svc -n prometheus`
+10. Access secrets by running `kubectl get svc -n prometheus`.
 11. Prometheus should already be configured as a data source in Grafana. 
 12. On the top search bar click Import Dashboard.
 13. Under Import from Grafana.com, enter `15760`.
