@@ -15,7 +15,7 @@ moat is a monitoring tool that scans clusters for basic health metrics and malic
 
 Our application is still in its development phase. Our efforts up to now have consisted of building a Kubernetes cluster using Amazon EKS to simulate a real-world scenario. Then we deployed Prometheus to scan our clusters and log essential metrics. We are currently displaying general health metrics from our kubernetes cluster on our dashboard through Grafana panels. Also, given there are many potential entry points to a cluster, we decided to focus our first security feature on identifying failed AWS login attempts, which could indicate a brute force attack. 
 
-# How To Use Moat
+# How To Use moat
 Given this project is still in it's early stages, the instructions below will guide you through many of the same steps we took to build out our test environment. It will involve creating a Kubernetes cluster on AWS, deploying an application to it, and scanning it with Prometheus. CloudWatch alerts will allow you to identify when a user exceeds a specified login attempt threshold. You can leverage our frontend dashboard to display your Grafana panels and view the data that Prometheus scrapes from your cluster. 
 
 ## Initial Setup
