@@ -27,8 +27,8 @@ npm install
 npm run dev
 ```
 
-## Build Test Environment
-The following instructions are for building a test environment on AWS. Keep in mind, this will cost money. If you want a free alternative, try building a test environment locally with minikube. 
+## Build Kubernetes Test Environment
+The following instructions are for building a test environment on AWS. Keep in mind, this will cost money. If you want a free alternative, try building a test environment locally with minikube. You can leverage the files in our test environment folder for your configurations. 
 
 1. Create an AWS account and set up your IAM roles
    - While all actions *can* be done in the root user’s account, it is *NOT* recommended to use the root user for anything other than setting up IAM roles
@@ -44,7 +44,7 @@ The following instructions are for building a test environment on AWS. Keep in m
 
 ## Command Line Setup
 1. Install AWS CLI and Configure AWS Credentials
-   - After AWS CLI is installed: Go to AWS account > security credentials > access keys > create new access key
+   - After AWS CLI is installed, go to AWS account > security credentials > access keys > create new access key
    - Create IAM Role with administration access and make sure all services and users have been assigned to use this Role
    - Run the command aws configure and enter AWS credentials (If running into permissions issues you can use the root users credentials to configure AWS but this is NOT recommended and is VERY unsecure)
 2. Install and setup kubectl (Kubernetes Command Line Tool)
