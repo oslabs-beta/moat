@@ -1,9 +1,9 @@
+import 'dotenv/config'
 import express, { Express, Request, Response, NextFunction } from 'express';
 import { User } from './userModel';
 import { join } from 'path';
 
 const app: Express = express();
-const port = 3000;
 
 app.use(express.json());
 //TODO: This line of code doesn't work, we need to figure out TS errors preventing the static fetching
@@ -57,6 +57,6 @@ app.use((err: unknown, req: Request, res: Response, next: NextFunction) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`[server]: Server is running at http://localhost:${process.env.PORT}`);
 });
