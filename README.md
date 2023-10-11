@@ -92,18 +92,71 @@ The following commands will install the Prometheus and Grafana OSS (_Not Grafana
 Once you have Grafana configured and your cluster data from Prometheus is being displayed in your dashboard, you should be able to embed iframes of key metrics into the moat dashboard. 
 
 ## Set Up AWS CloudWatch Alerts for Failed Login Attempts
-1. Install the CloudWatch Data Source plugin for Grafana. This plugin allows Grafana to fetch data from CloudWatch.
+1. Set up a CloudWatch alarm for sign-in failures in AWS: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html#cloudwatch-alarms-for-cloudtrail-signin
+2. Create an SNS (Simple Notification Service) topic in AWS. This topic will be used to send notifications when alarms are triggered. See AWS docs: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation
+3. In your CloudWatch alarm settings, configure actions to be taken when the alarm state changes to "ALARM." Add an action to publish a message to your SNS topic.
+4. Set up a Lambda function that receives CloudWatch alarm notifications from SNS and forwards them to Grafana.
+5. Install the CloudWatch Data Source plugin for Grafana. This plugin allows Grafana to fetch data from CloudWatch.
    - Go to the Grafana home page, click on the gear icon (⚙️) on the left sidebar to access the configuration.
    - Choose "Data Sources" and then click "Add data source."
    - Search for "CloudWatch" and select it.
    - Configure the CloudWatch data source with your AWS credentials and settings.
-2. Create or use existing Grafana Dashboards
-3. Set Up CloudWatch Alarms
-4. Create an SNS (Simple Notification Service) topic in AWS. This topic will be used to send notifications when alarms are triggered.
-5. In your CloudWatch alarm settings, configure actions to be taken when the alarm state changes to "ALARM." Add an action to publish a message to your SNS topic.
-6. Configure CloudWatch to send notifications to Grafana. You might need to set up a Lambda function that receives CloudWatch alarm notifications from SNS and forwards them to Grafana via HTTP.
-7. In Grafana, set up alerting rules for the panels on your dashboards. You can define alert conditions based on CloudWatch data. When an alert condition is met, Grafana can trigger actions, such as sending notifications or changing the state of a panel.
-8. Test the entire setup by triggering a CloudWatch alarm. This could involve generating simulated high CPU usage or other metric conditions that will trigger the alarms you've set up.
+6. Create or use existing Grafana Dashboards
+8. 
+9. Configure CloudWatch to send notifications to Grafana. You might need to set up a Lambda function. Here is the python code we used:
+
+```python
+import boto3
+import json
+
+def lambda_handler(event, context):
+    # Extract information from the CloudWatch Alarm event
+    try:
+        alarm_name = event['detail']['Console sign-in failures alarm']
+        alarm_description = event['detail']['Raises alarms if more than 3 console sign-in failures occur in 5 minutes']
+        new_state = event['detail']['newState']['stateValue']
+    except KeyError as e:
+        # Handle missing keys gracefully
+        return {
+            'statusCode': 400,
+            'body': json.dumps(f'Error: Missing key {e} in event.')
+        }
+    
+    # Check if the alarm has entered the ALARM state
+    if new_state == 'ALARM':
+        # Define the action to take when the alarm is triggered
+        action_to_take = "Take action to address console sign-in failures."
+        
+        # You can add your custom logic or notifications here
+        # For example, sending a notification using SNS
+        sns_client = boto3.client('sns')
+        topic_arn = 'YOUR-ARN'
+        message = f"Alarm '{alarm_name}' triggered: {alarm_description}\nAction: {action_to_take}"
+        
+        sns_client.publish(
+            TopicArn=topic_arn,
+            Message=message,
+            Subject=f"Alarm '{alarm_name}' Triggered"
+        )
+        
+        # You can also perform other actions or integrations as needed
+        
+        # Return a response
+        response = {
+            'statusCode': 200,
+            'body': json.dumps('Alarm triggered successfully.')
+        }
+    else:
+        # Return a response indicating that the alarm is not in ALARM state
+        response = {
+            'statusCode': 200,
+            'body': json.dumps('Alarm is not in ALARM state.')
+        }
+
+    return response
+```
+11. In Grafana, set up alerting rules for the panels on your dashboards. You can define alert conditions based on CloudWatch data. When an alert condition is met, Grafana can trigger actions, such as sending notifications or changing the state of a panel.
+12. Test the entire setup by triggering a CloudWatch alarm with excessive login attempts. 
 
 
 # The Team 
