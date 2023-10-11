@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { Schema, model, connect } from 'mongoose';
 
 //TODO: Utilize .env file to protect the connection string
@@ -23,7 +24,7 @@ run().catch(err => console.log(err));
 //TODO: Move sensitive info into .env file
 
 async function run() {
-  await connect('mongodb+srv://fantaaastic5:Hug8pCmJec2X20Pr@moat.k9sj1oh.mongodb.net/?retryWrites=true&w=majority');
+  await connect(process.env.DB_URI!);
   console.log('Connected to Database');
 }
 
