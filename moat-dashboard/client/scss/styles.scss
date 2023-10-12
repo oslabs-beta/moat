@@ -64,23 +64,12 @@ iframe {
   color: white;
 }
 
-/* MENU CSS */
-#menu-container {
-  padding: 0rem 1.5rem;
-}
-
-#menu {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-}
-
 /* SIDENAV CSS*/
 #chevron {
   background: #87abf8;
   box-shadow: 2px 2px 10px rgb(209, 208, 208);
   text-align: right;
-  padding: 0.07rem 1.5rem;
+  padding: 0.4rem 1.5rem;
 }
 
 #nav-content {
@@ -89,7 +78,18 @@ iframe {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 60vh;
+  height: 100vh;
+}
+
+#menu-container {
+  padding: 0rem 1.5rem;
+}
+
+#menu {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-bottom: 2rem;
 }
 
 .large-text {

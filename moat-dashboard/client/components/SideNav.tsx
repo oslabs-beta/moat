@@ -42,8 +42,8 @@ function SideNav(props: NavProps) {
         </IconButton>
       </div>
       <div id='nav-content'>
-        <Menu menuSelect={menuSelect} />
         <div id='top-nav-content'>
+          <Menu menuSelect={menuSelect} />
           <p className='large-text'>
             <strong>moat</strong> is a security-first monitoring tool that
             watches over Kubernetes clusters. View health data on the main
