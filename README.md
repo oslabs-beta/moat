@@ -16,7 +16,7 @@ moat is a monitoring tool that scans clusters for basic health metrics and malic
 Our application is still in its development phase. Our efforts up to now have consisted of building a Kubernetes cluster using Amazon EKS to simulate a real-world scenario. Then we deployed Prometheus to scan our clusters and log essential metrics. We are currently displaying general health metrics from our kubernetes cluster on our dashboard through Grafana panels. Also, given there are many potential entry points to a cluster, we decided to focus our first security feature on identifying failed AWS login attempts, which could indicate a brute force attack. 
 
 # How To Use moat
-Given this project is still in it's early stages, the instructions below will guide you through many of the same steps we took to build out our test environment. It will involve creating a Kubernetes cluster on AWS, deploying an application to it, and scanning it with Prometheus. CloudWatch alerts will allow you to identify when a user exceeds a specified login attempt threshold. You can leverage our frontend dashboard to display your Grafana panels and view the data that Prometheus scrapes from your cluster. 
+The instructions below will guide you through many of the same steps we took to build out our test environment and monitoring system. It will involve creating a Kubernetes cluster on AWS, deploying an application to it, and scanning it with Prometheus. CloudWatch alerts will allow you to identify when a user exceeds a specified login attempt threshold. You can leverage our frontend dashboard to display your Grafana panels and view the data that Prometheus scrapes from your cluster. 
 
 ## Initial Setup
 1. Fork and clone this repo, and then install the dependencies:
@@ -30,7 +30,11 @@ npm run dev
 ```
 
 ## Build Kubernetes Test Environment
-The following instructions are for building a test environment on AWS. Keep in mind, this will cost money. If you want a free alternative, try building a test environment locally with minikube. You can leverage the files in our test environment folder for your configurations. 
+The following instructions are for building a test environment on AWS. Keep in mind, this will cost money. If you want a free alternative, try building a test environment locally with minikube. You can leverage the files in our test environment directories to deploy a cluster with the AWS CLI and YAML files OR with AWS Elastic Beanstalk and RDS:
+
+Manual configuration: test-env-manual-deployment 
+AWS Elastic Beanstalk/RDS configuration: test-env-aws-eb-rds-deployment 
+
 
 1. Create an AWS account and set up your IAM roles.
    - While all actions *can* be done in the root user’s account, it is *NOT* recommended to use the root user for anything other than setting up IAM roles.
@@ -187,8 +191,9 @@ If you wish to contribute, or just learn from our progress, you are more then we
    - Use active voice: “Create sidebar component”
    - Give why/how context when helpful to other developers
    - Commit early and often
-   - Use multi-author commits 
+   - Use multi-author commits if you paired with another developer on your contribution
 
 4. DID YOU ADD ANY SENSITIVE INFORMATION TO CODE? Before you commit, move your sensitive data to a .env file. and add .env to .gitignore file.
 5. COMMIT when you make a meaningful change and use the guidelines.
-6. PUSH your code to your branch and submit a pull request.
+6. When you are ready to push your code, pull down dev and merge your code BEFORE pushing.
+7. Submit a pull request to the dev branch and fill out the pull request template (feature or bug).
