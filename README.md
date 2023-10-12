@@ -27,6 +27,9 @@ The instructions below will guide you through many of the same steps we took to 
 │   ├── test-env-aws-eb-rds-deployment
 │   ├── test-env-manual-deployment
 ```
+1. The `moat-dashboard` directory contains our front-end dashboard. This is where you will need to npm install the necessary dependencies to view the dashboard in your browser.
+2. The `test-env-aws-eb-rds-deployment` directory contains the config files we used to launch our Kubernetes cluster in AWS using Elastic Beanstalk and RDS. Feel free to use them for your own deployments, services, etc. if you decide to take this route.
+3. The `test-env-manual-deployment` directory contains the config files we used to launch a Kubernetes cluster manually. Feel free to use them for your own deployments, services, etc. if you decide to take this route.
 
 ### Launch moat Dashboard
 1. Fork and clone this repo.
@@ -38,8 +41,6 @@ npm install
 ```bash
 npm run dev
 ```
-3. The `test-env-aws-eb-rds-deployment` directory contains the config files we used to launch our Kubernetes cluster in AWS using Elastic Beanstalk and RDS. Feel free to use them for your own deployments, services, etc. if you decide to take this route.
-4. The `test-env-manual-deployment` directory contains the config files we used to launch a Kubernetes cluster manually. Feel free to use them for your own deployments, services, etc. if you decide to take this route.
 
 ## Build Kubernetes Test Environment
 The following instructions are for building a test environment on AWS. Keep in mind, this will cost money. If you want a free alternative, try building a test environment locally with minikube. You can leverage the files in our test environment directories to deploy a cluster with the AWS CLI and YAML files OR with AWS Elastic Beanstalk and RDS:
