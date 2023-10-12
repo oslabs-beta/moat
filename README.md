@@ -212,7 +212,7 @@ If you wish to contribute, or just learn from our progress, you are more then we
 6. When you are ready to push your code, pull down dev and merge your code BEFORE pushing.
 7. Submit a pull request to the dev branch and fill out the pull request template (feature or bug).
 
-# Todo List
+# To Do List
 Here's our wishlist of features and tasks, in case you wish to contribute to this project:
 
   | Task | Description |
