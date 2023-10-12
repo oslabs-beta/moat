@@ -20,7 +20,7 @@ Our application is still in its development phase. Our efforts up to now have co
 The instructions below will guide you through many of the same steps we took to build out our test environment and monitoring system. It will involve creating a Kubernetes cluster on AWS, deploying an application to it, and scanning it with Prometheus. CloudWatch alerts will allow you to identify when a user exceeds a specified login attempt threshold. You can leverage our frontend dashboard to display your Grafana panels and view the data that Prometheus scrapes from your cluster. 
 
 ## Initial Setup
-### File Structure
+### Folder Structure
 ```bash
 ├── root
 │   ├── moat-dashboard
