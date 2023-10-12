@@ -20,15 +20,26 @@ Our application is still in its development phase. Our efforts up to now have co
 The instructions below will guide you through many of the same steps we took to build out our test environment and monitoring system. It will involve creating a Kubernetes cluster on AWS, deploying an application to it, and scanning it with Prometheus. CloudWatch alerts will allow you to identify when a user exceeds a specified login attempt threshold. You can leverage our frontend dashboard to display your Grafana panels and view the data that Prometheus scrapes from your cluster. 
 
 ## Initial Setup
-1. Fork and clone this repo. Navigate to moat-dashboard directory inside repo to install the dependencies:
+### File Structure
+```bash
+├── root
+│   ├── moat-dashboard
+│   ├── test-env-aws-eb-rds-deployment
+│   ├── test-env-manual-deployment
+```
+
+### Launch moat Dashboard
+1. Fork and clone this repo.
+2. To view the moat dashboard in your browser, navigate to `moat-dashboard` directory. Install the dependencies there.
 ```bash
 npm install
 ```
 2. Launch moat from the command line:
-
 ```bash
 npm run dev
 ```
+3. The `test-env-aws-eb-rds-deployment` directory contains the config files we used to launch our Kubernetes cluster in AWS using Elastic Beanstalk and RDS. Feel free to use them for your own deployments, services, etc. if you decide to take this route.
+4. The `test-env-manual-deployment` directory contains the config files we used to launch a Kubernetes cluster manually. Feel free to use them for your own deployments, services, etc. if you decide to take this route.
 
 ## Build Kubernetes Test Environment
 The following instructions are for building a test environment on AWS. Keep in mind, this will cost money. If you want a free alternative, try building a test environment locally with minikube. You can leverage the files in our test environment directories to deploy a cluster with the AWS CLI and YAML files OR with AWS Elastic Beanstalk and RDS:
