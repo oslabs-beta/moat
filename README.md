@@ -38,11 +38,11 @@ AWS Elastic Beanstalk/RDS configuration: test-env-aws-eb-rds-deployment
 
 1. Create an AWS account and set up your IAM roles.
    - While all actions *can* be done in the root user’s account, it is *NOT* recommended to use the root user for anything other than setting up IAM roles.
-   - Set up a user group with the AdministratorAccess policy and set up any additional IAM user roles from there. Use the rule of least-privilege for granting permissions.
-2. Create a kubernetes cluster on AWS using EKS. Once the kubernetes cluster has been spun up, you will be use AWS’s console or the AWS CLI to add, edit, and stop deployments.
+   - Set up a user group with the AdministratorAccess policy and set up any additional IAM user roles from there. Use the rule of [least-privilege](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) for granting permissions.
+2. Create a kubernetes cluster on AWS using EKS. Once the kubernetes cluster has been spun up, you will be use AWS’s console or the [AWS CLI](https://docs.aws.amazon.com/cli/) to add, edit, and stop deployments.
 3. Create a Docker image of your application (or use the example CodeForge app in our repo).
 4. Push your image to either ECR or Docker Hub. Remember the repo and organization name, it will be important when creating the .yaml files for deploying the EC2 instance to our k8s cluster.
-5. Deploy your application to AWS EC2 instance using elasticbeanstalk, or your preferred method.
+5. Deploy your application to AWS EC2 instance using Elastic Beanstalk, or your preferred method.
 6. Set up your database with RDS, deploy your own database to the cluster, or use your preferred method.
 7. Deploy your EC2 instance and database to your Kubernetes cluster.
 8. Configure nginx-ingress controller to serve EC2 instance through an external URI. Make sure that the ports being exposed are the same ports being used by your application (CodeForge uses port 3000).
@@ -77,9 +77,9 @@ The following commands will install the Prometheus and Grafana OSS (_Not Grafana
 6. Verify type and status have been changed: `kubectl get svc -n prometheus`
 7. Now do the same for Grafana: `kubectl edit svc stable-grafana -n prometheus`
 8. Change type and status from ClusterIP to LoadBalancer: `kubectl get svc -n prometheus`. This will provide a URL to access both the Prometheus and Grafana Servers.
-9. Grafana default login credientials:
+9. Grafana default login credentials:
     - **Username:** admin
-    - **Password:** prom-operatior
+    - **Password:** prom-operator
 10. Access secrets by running `kubectl get svc -n prometheus`
 11. Prometheus should already be configured as a data source in Grafana. 
 12. On the top search bar click Import Dashboard.
@@ -90,9 +90,10 @@ The following commands will install the Prometheus and Grafana OSS (_Not Grafana
 17. Navigate to the grafana-configmap.yaml in the repo, and run the following comand:
     `kubectl apply -f /path_to/grafana-configmap.yaml`
 18. Verify changes are reflected in Grafana: Home > Administration > Settings > security > allow_embedding=true
-19. You can now embed dashboard panels on an external website!
+19. Remove time stamp from embedded URL.
+20. You can now embed dashboard panels on an external website!
 
-**Source for installing Prometheus on EKS:** https://medium.com/@maheshbiradar8887/eks-monitoring-using-helm-prometheus-and-grafana-dashboard-e47093c08ece
+[**Source for installing Prometheus on EKS:**](https://medium.com/@maheshbiradar8887/eks-monitoring-using-helm-prometheus-and-grafana-dashboard-e47093c08ece)
 
 ## Add Panels to Dashboard
 Once you have Grafana configured and your cluster data from Prometheus is being displayed in your dashboard, you should be able to embed iframes of key metrics into the moat dashboard. 
@@ -199,7 +200,7 @@ If you wish to contribute, or just learn from our progress, you are more then we
 7. Submit a pull request to the dev branch and fill out the pull request template (feature or bug).
 
 # Todo List
-Here's a list of features and other tasks we have planned, in case you wish to contribute to this project:
+Here's our wishlist of features and tasks, in case you wish to contribute to this project:
 
   | Task | Description |
   | ------------- | ------------- |
