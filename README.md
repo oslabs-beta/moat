@@ -93,7 +93,7 @@ The following commands will install the Prometheus and Grafana OSS (_Not Grafana
 19. Remove time stamp from embedded URL.
 20. You can now embed dashboard panels on an external website!
 
-[**Source for installing Prometheus on EKS:**](https://medium.com/@maheshbiradar8887/eks-monitoring-using-helm-prometheus-and-grafana-dashboard-e47093c08ece)
+[**Source for installing Prometheus on EKS**](https://medium.com/@maheshbiradar8887/eks-monitoring-using-helm-prometheus-and-grafana-dashboard-e47093c08ece)
 
 ## Add Panels to Dashboard
 Once you have Grafana configured and your cluster data from Prometheus is being displayed in your dashboard, you should be able to embed iframes of key metrics into the moat dashboard. 
