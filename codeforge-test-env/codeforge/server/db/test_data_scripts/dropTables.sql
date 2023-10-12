@@ -1,1 +1,0 @@
-DROP TABLE posts, user_sessions, users;
