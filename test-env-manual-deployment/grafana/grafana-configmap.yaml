@@ -1,0 +1,42 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+# configmaps "stable-grafana-config-dashboards" was not valid:
+# * patch: Invalid value: "map[data:map[provider.yaml:[map[allowUiUpdates:false disableDeletion:false folder: name:sidecarProvider options:map[allow_embedding:true auth.anonymous:map[enabled:true org_name:Main Org. org_role:Viewer] foldersFromFilesStructure:false path:/tmp/dashboards] orgId:1 type:file updateIntervalSeconds:30]]] metadata:map[creationTimestamp:<nil>]]": unrecognized type: string
+#
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    meta.helm.sh/release-name: stable
+    meta.helm.sh/release-namespace: prometheus
+  labels:
+    app.kubernetes.io/instance: stable
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: grafana
+    app.kubernetes.io/version: 10.1.1
+    helm.sh/chart: grafana-6.59.4
+  name: stable-grafana-config-dashboards
+  namespace: prometheus
+  resourceVersion: '661734'
+  uid: 52102623-bda9-4680-88c7-03c91a32aa7a
+data:
+  provider.yaml:
+    | #Not sure if this slash needs to be there or not. Embarassing, I know.
+    - name: 'sidecarProvider'
+      orgId: 1
+      folder: ''
+      type: file
+      disableDeletion: false
+      allowUiUpdates: false
+      updateIntervalSeconds: 30
+      options:
+        foldersFromFilesStructure: false
+        path: /tmp/dashboards
+        allow_embedding: true
+        auth.anonymous:
+          enabled: true
+          org_name: 'Main Org.'
+          org_role: Viewer

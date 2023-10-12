@@ -1,0 +1,90 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: codeforge
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: codeforge
+  name: deployment-codeforge
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: codeforge-app
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: codeforge-app
+    spec:
+      containers:
+        - name: codeforge-app
+          image: moatdev/cf-prod
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-db
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-user
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-password
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-host
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-port
+      nodeSelector:
+        kubernetes.io/os: linux
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: codeforge
+  name: service-codeforge
+spec:
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: codeforge-app
+  ports:
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: 3000
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  namespace: codeforge
+  name: ingress-codeforge
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: service-codeforge
+                port:
+                  number: 80

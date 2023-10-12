@@ -1,0 +1,2 @@
+FROM postgres:16.0
+COPY ./server/db/sql_scripts/buildDB.sql /docker-entrypoint-initdb.d/
