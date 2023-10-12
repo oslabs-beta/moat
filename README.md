@@ -197,3 +197,18 @@ If you wish to contribute, or just learn from our progress, you are more then we
 5. COMMIT when you make a meaningful change and use the guidelines.
 6. When you are ready to push your code, pull down dev and merge your code BEFORE pushing.
 7. Submit a pull request to the dev branch and fill out the pull request template (feature or bug).
+
+# Todo List
+Here's a list of features and other tasks we have planned, in case you wish to contribute to this project:
+
+  | Task | Description |
+  | ------------- | ------------- |
+  | Create private storage for k8s and config maps for all deployments in the k8s cluster | This will improve the security of the system |
+  | Refractor application for grid layout | This should improve the styling and clarity of the application when applied properly |
+  | Refractor moat backend | Our backend architecture will benefit from refractoring. More details are in the server half of our codebase |
+  | Frontend and Backend testing | Adding testing for both ends of moat will provide a better experience for other developers who may want to iterate on this product |
+  | Set up github actions for both kubernetes and front end | This will improve the workflow for future developer teams |
+  | Feature: Alert to implement login rate timer | This was a planned feature that was designed to track excessive logins in case of a brute force attack on the application or cluster being protected by moat |
+  | Feature: Lockout mechanism for excessive login attempts on codeforge/k8s cluster | This feature is another defense mechanism in the event of a brute force login attempt |
+  | Create a script that will attempt to simulate brute force login on codeforge/k8s cluster | This will allow a developer team to test the viability of the previous two features proposed |
+  | Wrap moat in a docker container | This will allow for easy hosting, transfer, and installation for the moat application |
