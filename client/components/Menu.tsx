@@ -7,7 +7,9 @@ import { Button } from '@mui/material';
 
 const style = {
   button: {
-    background: '#2a65e8'
+    background: '#639db0',
+    padding: '10px',
+    boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.2)',
   },
 };
 
@@ -22,11 +24,32 @@ function Menu(props: MenuProps) {
     <div id='menu-container'>
       <div id='menu'>
         <div></div>
-          <ButtonGroup variant="contained" aria-label="outlined primary button group" orientation='vertical'>
-            <Button style={style.button} onClick={() => {menuSelect('main')}}>Main Dashboard</Button>
-            <Button style={style.button} onClick={() => {menuSelect('node')}}>Node Graph</Button>
-            <Button style={style.button} onClick={() => {menuSelect('logs')}}>Logs Dashboard</Button>
-          </ButtonGroup>
+        <ButtonGroup
+          variant='contained'
+          aria-label='outlined primary button group'
+          orientation='vertical'>
+          <Button
+            style={style.button}
+            onClick={() => {
+              menuSelect('main');
+            }}>
+            Main Dashboard
+          </Button>
+          <Button
+            style={style.button}
+            onClick={() => {
+              menuSelect('node');
+            }}>
+            Node Graph
+          </Button>
+          <Button
+            style={style.button}
+            onClick={() => {
+              menuSelect('logs');
+            }}>
+            Logs Dashboard
+          </Button>
+        </ButtonGroup>
         <div></div>
       </div>
     </div>
