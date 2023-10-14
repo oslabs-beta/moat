@@ -21,7 +21,7 @@ metadata:
   name: stable-grafana-config-dashboards
   namespace: prometheus
   resourceVersion: '661734'
-  uid: 52102623-bda9-4680-88c7-03c91a32aa7a
+  uid: 'UID'
 data:
   provider.yaml:
     | #Not sure if this slash needs to be there or not. Embarassing, I know.

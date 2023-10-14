@@ -7,7 +7,7 @@ metadata:
 spec:
    containers:
    - name: codeforge-ingress
-     image: 604915685483.dkr.ecr.us-east-1.amazonaws.com/codeforge-app
+     image: 'YOUR-DOCKER-IMAGE'
  
 ---
 
