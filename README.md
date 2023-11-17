@@ -180,7 +180,7 @@ def lambda_handler(event, context):
 | Name | Github | LinkedIn |
 | ------------- | ------------- | ------------- |
 | Anil Kondaveeti | https://github.com/Akon530  | http://www.linkedin.com/in/anil-kondaveeti-23175320b  |
-| Gayle Martin  | https://github.com/palemartian  | https://www.linkedin.com/in/gaylem/  |
+| Gayle Martin  | https://github.com/gaylem  | https://www.linkedin.com/in/gaylem/  |
 | Ivy Shmikler  | https://github.com/ishmikler  | http://www.linkedin.com/in/ivy-shmikler  |
 | Max Weiner  | https://github.com/maxweiner02  | https://www.linkedin.com/in/max-j-weiner/  |
 | Meredith Frazier Britt  | https://github.com/mfrazb  | https://www.linkedin.com/in/meredithfrazierbritt/  |
